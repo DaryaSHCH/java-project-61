@@ -1,5 +1,9 @@
 package hexlet.code.games;
 
+import hexlet.code.App;
+import hexlet.code.Engine;
+import hexlet.code.StaticVariables;
+
 public class GreatestCommonDivisorGame {
     static final String QUESTION = "Question: ";
 
