@@ -2,9 +2,8 @@ package hexlet.code;
 
 import hexlet.code.games.*;
 
-import java.util.Scanner;
-
 import static hexlet.code.Cli.greetUser;
+import static hexlet.code.Engine.closeSCAN;
 
 public class App {
     public static String USER_NAME;
@@ -20,10 +19,7 @@ public class App {
 
 
     public static void main(String[] args) {
-        Scanner scan = new Scanner(System.in);
-
         System.out.println(App.USER_CHOICE);
-
         int numberUserChoice;
         do {
             numberUserChoice = Engine.inputChoiceNumber();
@@ -54,5 +50,6 @@ public class App {
         } else {
             System.out.println("Your choice: " + StaticVariables.USER_CHOICE_FOR_EXIT + "\nGoodbye");
         }
+        closeSCAN();
     }
 }
