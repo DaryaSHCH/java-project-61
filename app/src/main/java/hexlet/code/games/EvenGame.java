@@ -1,5 +1,9 @@
 package hexlet.code.games;
 
+import hexlet.code.App;
+import hexlet.code.Engine;
+import hexlet.code.StaticVariables;
+
 public class EvenGame {
     public static void start() {
         System.out.println("Answer 'yes' if number even otherwise answer 'no'");
