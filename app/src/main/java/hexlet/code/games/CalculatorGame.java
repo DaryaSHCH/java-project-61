@@ -1,5 +1,11 @@
 package hexlet.code.games;
 
+import hexlet.code.App;
+import hexlet.code.Engine;
+import hexlet.code.StaticVariables;
+
+import static hexlet.code.Engine.getRandomNumberToTen;
+
 public class CalculatorGame {
     public static void start(){
 
