@@ -4,25 +4,23 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class Engine {
+    static Scanner SCAN = new Scanner(System.in);
+
     static int inputChoiceNumber() {
-            Scanner scan = new Scanner(System.in);
             int number;
-            while (!scan.hasNextInt()){
-                var line = scan.nextLine();
+            while (!SCAN.hasNextInt()){
+                var line = SCAN.nextLine();
                 System.out.println(App.USER_CHOICE);
             }
-            number = scan.nextInt();
+            number = SCAN.nextInt();
             return number;
         }
         public static String getUserStringAnswer(String message) {
-            Scanner scan = new Scanner(System.in);
             String userAnswer;
             do {
                 System.out.println(message);
-
-                userAnswer = scan.nextLine();
+                userAnswer = SCAN.nextLine();
             } while (userAnswer.trim().equals(""));
-
             return userAnswer;
         }
         public static int getRandomNumberToTen() {
@@ -38,14 +36,15 @@ public class Engine {
             return random.nextInt(max - min) + min;
         }
     public static int getUserIntegerAnswer(String message) {
-
-        Scanner scan = new Scanner(System.in);
         int userAnswer;
-        while (!scan.hasNextInt()){
-            var line = scan.nextLine();
+        while (!SCAN.hasNextInt()){
+            var line = SCAN.nextLine();
             System.out.println(message);
         }
-        userAnswer = scan.nextInt();
+        userAnswer = SCAN.nextInt();
         return userAnswer;
+    }
+    public static void closeSCAN(){
+        SCAN.close();
     }
 }
