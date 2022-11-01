@@ -1,5 +1,9 @@
 package hexlet.code.games;
 
+import hexlet.code.App;
+import hexlet.code.Engine;
+import hexlet.code.StaticVariables;
+
 public class ArithmeticProgression {
     public static void start(){
         System.out.println("What number is missing in the progression?");
