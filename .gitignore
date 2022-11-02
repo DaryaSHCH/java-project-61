@@ -15,4 +15,7 @@ app/build/tmp/jar/
 !gradle-wrapper.jar
 
 
-/app/build/
+build/
+
+/build/*.lock
+
