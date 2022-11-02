@@ -25,13 +25,13 @@ public class App {
             numberUserChoice = Engine.inputChoiceNumber();
         } while (numberUserChoice > 6);
 
-        if(numberUserChoice == StaticVariables.USER_CHOICE_FOR_GREETING) {
+        if (numberUserChoice == StaticVariables.USER_CHOICE_FOR_GREETING) {
             greetUser();
-        } else if(numberUserChoice == StaticVariables.USER_CHOICE_FOR_START_EVEN_GAME) {
+        } else if (numberUserChoice == StaticVariables.USER_CHOICE_FOR_START_EVEN_GAME) {
             System.out.println("Your choice: " + StaticVariables.USER_CHOICE_FOR_START_EVEN_GAME);
             greetUser();
             EvenGame.start();
-        } else if (numberUserChoice == StaticVariables.USER_CHOICE_FOR_CALCULATOR){
+        } else if (numberUserChoice == StaticVariables.USER_CHOICE_FOR_CALCULATOR) {
             System.out.println("Your choice: " + StaticVariables.USER_CHOICE_FOR_CALCULATOR);
             greetUser();
             CalculatorGame.start();
