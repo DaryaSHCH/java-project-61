@@ -5,10 +5,11 @@ import hexlet.code.Engine;
 import hexlet.code.StaticVariables;
 
 public class ArithmeticProgression {
-    public static void start(){
+    public static void start() {
         System.out.println("What number is missing in the progression?");
         getArithmeticProgressionGame();
     }
+
     public static void getArithmeticProgressionGame() {
         int correctAnswer;
         int counterRightAnswer = 0;
@@ -28,7 +29,7 @@ public class ArithmeticProgression {
                     System.out.println("Correct!");
                 } else {
                     System.out.println("'" + userAnswer + "'" + "is wrong answer ;(. Correct answer was '" +
-                            correctAnswer + "'.\nLet's try again, " + App.USER_NAME +"!");
+                            correctAnswer + "'.\nLet's try again, " + App.USER_NAME + "!");
                 }
             } else if (randomNumbForInterval <= 10 && randomNumbForInterval > 5) {
                 int[] secondProgression = getProgression(3);
@@ -43,7 +44,7 @@ public class ArithmeticProgression {
                     System.out.println("Correct!");
                 } else {
                     System.out.println("'" + userAnswer + "'" + "is wrong answer ;(. Correct answer was '" +
-                            correctAnswer + "'.\nLet's try again, " + App.USER_NAME +"!");
+                            correctAnswer + "'.\nLet's try again, " + App.USER_NAME + "!");
                 }
             } else {
                 int[] thirdProgression = getProgression(5);
@@ -58,7 +59,7 @@ public class ArithmeticProgression {
                     System.out.println("Correct!");
                 } else {
                     System.out.println("'" + userAnswer + "'" + "is wrong answer ;(. Correct answer was '" +
-                            correctAnswer + "'.\nLet's try again, " + App.USER_NAME +"!");
+                            correctAnswer + "'.\nLet's try again, " + App.USER_NAME + "!");
                 }
             }
         }
@@ -69,9 +70,10 @@ public class ArithmeticProgression {
             System.out.println("Quantity correct answers: " + counterRightAnswer + "\nGAME OVER");
         }
     }
-    public static int[] getProgression(int intervalBetweenNumbers){
+
+    public static int[] getProgression(int intervalBetweenNumbers) {
         int[] progression = new int[10];
-        int firstElement  = Engine.getRandomNumberToHundred();
+        int firstElement = Engine.getRandomNumberToHundred();
         progression[0] = firstElement;
 
         for (int i = 0; i < progression.length; i++) {
@@ -98,10 +100,11 @@ public class ArithmeticProgression {
         }
         return progression1;
     }
-    public static String getStringProgression (int[] progression, int indexMissingElement) {
+
+    public static String getStringProgression(int[] progression, int indexMissingElement) {
         StringBuilder progressionString = new StringBuilder("");
         for (int i = 0; i < progression.length; i++) {
-            if ( i == indexMissingElement) {
+            if (i == indexMissingElement) {
                 progressionString.append(".. ");
             } else {
                 progressionString.append(progression[i] + " ");
@@ -109,6 +112,7 @@ public class ArithmeticProgression {
         }
         return progressionString.toString();
     }
+
     public static int getIndexMissingElement(int index) {
         if (index == 1) {
             return 0;
@@ -118,6 +122,7 @@ public class ArithmeticProgression {
             return index;
         }
     }
+
     public static boolean isCorrect(int correctAnswer, int userAnswer) {
         if (correctAnswer == userAnswer) {
             return true;
