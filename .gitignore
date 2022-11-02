@@ -9,3 +9,10 @@ app/build/libs/
 app/build/scripts/
 
 app/build/tmp/jar/
+
+!gradle-wrapper.properties
+
+!gradle-wrapper.jar
+
+
+/app/build/
