@@ -2,4 +2,10 @@
 
 .idea/
 
-/app/build/
+app/build/install/
+
+app/build/libs/
+
+app/build/scripts/
+
+app/build/tmp/jar/
