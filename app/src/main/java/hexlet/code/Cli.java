@@ -10,13 +10,14 @@ public class Cli {
         System.out.println("Hello, " + userName + "!");
         App.USER_NAME = userName;
     }
-    public static String getUserName(String message){
+
+    public static String getUserName(String message) {
         String userName;
         userName = SCAN.nextLine();
         while (userName.trim().equals("")) {
-                System.out.println(message);
+            System.out.println(message);
             userName = SCAN.nextLine();
-            }
+        }
         return userName;
     }
 }
