@@ -9,6 +9,7 @@ public class PrimeNumberGame {
         System.out.println("Answer 'yes' if given number is prime. Otherwise answer 'no'.");
         getPrimeNumberGame();
     }
+
     public static void getPrimeNumberGame() {
 
         int counterRightAnswer = 0;
@@ -26,11 +27,11 @@ public class PrimeNumberGame {
                 if (userAnswer.equalsIgnoreCase("yes") && !isPrime(randomNumber)) {
                     correctAnswer = "no";
                     System.out.println("'" + userAnswer + "'" + "is wrong answer ;(. Correct answer was '" +
-                            correctAnswer + "'.\nLet's try again, " + App.USER_NAME +"!");
+                            correctAnswer + "'.\nLet's try again, " + App.USER_NAME + "!");
                 } else {
                     correctAnswer = "yes";
                     System.out.println("'" + userAnswer + "'" + "is wrong answer ;(. Correct answer was '" +
-                            correctAnswer + "'.\nLet's try again, " + App.USER_NAME +"!");
+                            correctAnswer + "'.\nLet's try again, " + App.USER_NAME + "!");
                 }
             }
         }
@@ -40,6 +41,7 @@ public class PrimeNumberGame {
             System.out.println("Quantity correct answers: " + counterRightAnswer + "\nGAME OVER");
         }
     }
+
     public static boolean isPrime(int number) {
         {
             if (number <= 1)
