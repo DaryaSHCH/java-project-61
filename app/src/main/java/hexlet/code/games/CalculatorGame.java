@@ -7,13 +7,14 @@ import hexlet.code.StaticVariables;
 import static hexlet.code.Engine.getRandomNumberToTen;
 
 public class CalculatorGame {
-    public static void start(){
+    public static void start() {
 
         System.out.println("What is the result of the expression?");
         getCalculatorGame();
 
     }
-    public static void getCalculatorGame(){
+
+    public static void getCalculatorGame() {
         int correctAnswer;
         int counterRightAnswer = 0;
 
@@ -23,7 +24,7 @@ public class CalculatorGame {
             int randomNumberForMathExample = getRandomNumberToTen();
             int userAnswer;
             if (randomNumberForMathExample < 5) {
-                System.out.println (StaticVariables.QUESTION + firstNumberForUserTask + " + "
+                System.out.println(StaticVariables.QUESTION + firstNumberForUserTask + " + "
                         + secondNumberForUserTask + "\nYour answer: ");
                 userAnswer = Engine.getUserIntegerAnswer(StaticVariables.QUESTION + firstNumberForUserTask + " + "
                         + secondNumberForUserTask + "\nYour answer: ");
@@ -33,7 +34,7 @@ public class CalculatorGame {
                     System.out.println("Correct!");
                 } else {
                     System.out.println("'" + userAnswer + "'" + "is wrong answer ;(. Correct answer was '" +
-                            correctAnswer + "'.\nLet's try again, " + App.USER_NAME +"!");
+                            correctAnswer + "'.\nLet's try again, " + App.USER_NAME + "!");
                 }
             } else if (randomNumberForMathExample <= 10 && randomNumberForMathExample > 5) {
                 System.out.println(StaticVariables.QUESTION + firstNumberForUserTask + " * "
@@ -46,7 +47,7 @@ public class CalculatorGame {
                     System.out.println("Correct!");
                 } else {
                     System.out.println("'" + userAnswer + "'" + "is wrong answer ;(. Correct answer was '" +
-                            correctAnswer + "'.\nLet's try again, " + App.USER_NAME +"!");
+                            correctAnswer + "'.\nLet's try again, " + App.USER_NAME + "!");
                 }
             } else {
                 System.out.println(StaticVariables.QUESTION + firstNumberForUserTask + " - "
@@ -59,7 +60,7 @@ public class CalculatorGame {
                     System.out.println("Correct!");
                 } else {
                     System.out.println("'" + userAnswer + "'" + "is wrong answer ;(. Correct answer was '" +
-                            correctAnswer + "'.\nLet's try again, " + App.USER_NAME +"!");
+                            correctAnswer + "'.\nLet's try again, " + App.USER_NAME + "!");
                 }
             }
         }
@@ -70,6 +71,7 @@ public class CalculatorGame {
             System.out.println("Quantity correct answers: " + counterRightAnswer + "\nGAME OVER");
         }
     }
+
     public static boolean isCorrect(int correctAnswer, int userAnswer) {
         if (correctAnswer == userAnswer) {
             return true;
