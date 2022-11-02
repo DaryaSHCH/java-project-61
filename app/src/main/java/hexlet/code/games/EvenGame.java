@@ -9,6 +9,7 @@ public class EvenGame {
         System.out.println("Answer 'yes' if number even otherwise answer 'no'");
         getEvenGame();
     }
+
     public static void getEvenGame() {
         int counterCorrectAnswer = 0;
         for (int i = 0; i < StaticVariables.TRIES; i++) {
@@ -31,6 +32,7 @@ public class EvenGame {
             System.out.println("Quantity correct answers: " + counterCorrectAnswer + "\nGAME OVER");
         }
     }
+
     private static void checkRightAnswer(int presentRandomNumb, String userAnswer) {
         if (userAnswer.equalsIgnoreCase("yes") && isEven(presentRandomNumb) ||
                 userAnswer.equalsIgnoreCase("no") && !isEven(presentRandomNumb)) {
@@ -39,6 +41,7 @@ public class EvenGame {
             System.out.println("you made Mistake");
         }
     }
+
     public static boolean isEven(int randomNumb) {
         return randomNumb % 2 == 0;
     }
