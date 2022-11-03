@@ -6,7 +6,7 @@ import hexlet.code.StaticVariables;
 
 public class EvenGame {
     public static void start() {
-        System.out.println("Answer 'yes' if the number even otherwise answer 'no'");
+        System.out.println("Answer 'yes' if the number is even, otherwise answer 'no'");
         getEvenGame();
     }
 
