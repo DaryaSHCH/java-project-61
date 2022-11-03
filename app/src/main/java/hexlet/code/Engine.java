@@ -19,7 +19,7 @@ public class Engine {
     public static String getUserStringAnswer(String message) {
         String userAnswer;
         do {
-            System.out.println(message);
+            System.out.print(message);
             userAnswer = SCAN.nextLine();
         } while (userAnswer.trim().equals(""));
         return userAnswer;
