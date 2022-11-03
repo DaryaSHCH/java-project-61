@@ -17,8 +17,8 @@ public class EvenGame {
             int presentRandomNumb = Engine.getRandomNumberToTen();
             String userAnswer = Engine.getUserStringAnswer(StaticVariables.QUESTION + presentRandomNumb + "\nYour answer: ");
             correctAnswer = getCorrectAnswer(presentRandomNumb);
-            if ((userAnswer.equalsIgnoreCase("yes") && isEven(presentRandomNumb))
-                    || (userAnswer.equalsIgnoreCase("no") && !isEven(presentRandomNumb))) {
+            if ((userAnswer.equals("yes") && isEven(presentRandomNumb))
+                    || (userAnswer.equals("no") && !isEven(presentRandomNumb))) {
                 System.out.println("Correct!");
                 counterCorrectAnswer++;
             } else {
@@ -45,8 +45,8 @@ public class EvenGame {
     }
 
     private static void checkRightAnswer(int presentRandomNumb, String userAnswer) {
-        if (userAnswer.equalsIgnoreCase("yes") && isEven(presentRandomNumb) ||
-                userAnswer.equalsIgnoreCase("no") && !isEven(presentRandomNumb)) {
+        if (userAnswer.equals("yes") && isEven(presentRandomNumb) ||
+                userAnswer.equals("no") && !isEven(presentRandomNumb)) {
             System.out.println("Correct!");
         } else {
             System.out.println("you made Mistake");
@@ -54,7 +54,7 @@ public class EvenGame {
     }
 
     public static boolean isCorrect(String correctAnswer, String userAnswer) {
-        return correctAnswer.equalsIgnoreCase(userAnswer);
+        return correctAnswer.equals(userAnswer);
     }
 
     public static boolean isEven(int randomNumb) {
