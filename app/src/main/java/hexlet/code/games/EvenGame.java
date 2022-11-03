@@ -30,6 +30,7 @@ public class EvenGame {
 
         if (counterCorrectAnswer >= StaticVariables.TRIES) {
             System.out.println("Congratulations, " + App.USER_NAME + "!");
+            App.main(null);
         }
     }
 
