@@ -12,25 +12,35 @@ public class EvenGame {
 
     public static void getEvenGame() {
         int counterCorrectAnswer = 0;
+        String correctAnswer;
         for (int i = 0; i < StaticVariables.TRIES; i++) {
             int presentRandomNumb = Engine.getRandomNumberToTen();
-
             String userAnswer = Engine.getUserStringAnswer(StaticVariables.QUESTION + presentRandomNumb + "\nYour answer: ");
-
+            correctAnswer = getCorrectAnswer(presentRandomNumb);
             if ((userAnswer.equalsIgnoreCase("yes") && isEven(presentRandomNumb))
                     || (userAnswer.equalsIgnoreCase("no") && !isEven(presentRandomNumb))) {
                 System.out.println("Correct!");
                 counterCorrectAnswer++;
             } else {
-                System.out.println("you made mistake");
+                System.out.println("'" + userAnswer + "'" + " is wrong answer ;(. Correct answer was '" +
+                        correctAnswer + "'.\nLet's try again, " + App.USER_NAME + "!");
+                break;
             }
         }
 
         if (counterCorrectAnswer >= StaticVariables.TRIES) {
             System.out.println("Congratulations, " + App.USER_NAME + "!");
-        } else {
-            System.out.println("Quantity correct answers: " + counterCorrectAnswer + "\nGAME OVER");
         }
+    }
+
+    private static String getCorrectAnswer(int presentRandomNumb) {
+        String correctAnswer;
+        if (isEven(presentRandomNumb)) {
+            correctAnswer = "yes";
+        } else {
+            correctAnswer = "no";
+        }
+        return correctAnswer;
     }
 
     private static void checkRightAnswer(int presentRandomNumb, String userAnswer) {
@@ -39,6 +49,14 @@ public class EvenGame {
             System.out.println("Correct!");
         } else {
             System.out.println("you made Mistake");
+        }
+    }
+
+    public static boolean isCorrect(String correctAnswer, String userAnswer) {
+        if (correctAnswer == userAnswer) {
+            return true;
+        } else {
+            return false;
         }
     }
 
