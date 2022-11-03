@@ -54,11 +54,7 @@ public class EvenGame {
     }
 
     public static boolean isCorrect(String correctAnswer, String userAnswer) {
-        if (correctAnswer == userAnswer) {
-            return true;
-        } else {
-            return false;
-        }
+        return correctAnswer.equalsIgnoreCase(userAnswer);
     }
 
     public static boolean isEven(int randomNumb) {
