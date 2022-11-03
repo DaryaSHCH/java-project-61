@@ -17,14 +17,14 @@ public class EvenGame {
             int presentRandomNumb = Engine.getRandomNumberToTen();
             String userAnswer = Engine.getUserStringAnswer(StaticVariables.QUESTION + presentRandomNumb + "\nYour answer: ");
             correctAnswer = getCorrectAnswer(presentRandomNumb);
-            if ((userAnswer.equals("yes") && isEven(presentRandomNumb))
-                    || (userAnswer.equals("no") && !isEven(presentRandomNumb))) {
+            if ((userAnswer.equalsIgnoreCase("yes") && isEven(presentRandomNumb))
+                    || (userAnswer.equalsIgnoreCase("no") && !isEven(presentRandomNumb))) {
                 System.out.println("Correct!");
                 counterCorrectAnswer++;
             } else {
                 System.out.println("'" + userAnswer + "'" + " is wrong answer ;(. Correct answer was '" +
                         correctAnswer + "'.\nLet's try again, " + App.USER_NAME + "!");
-                break;
+                App.main(null);
             }
         }
 
@@ -45,8 +45,8 @@ public class EvenGame {
     }
 
     private static void checkRightAnswer(int presentRandomNumb, String userAnswer) {
-        if (userAnswer.equals("yes") && isEven(presentRandomNumb) ||
-                userAnswer.equals("no") && !isEven(presentRandomNumb)) {
+        if (userAnswer.equalsIgnoreCase("yes") && isEven(presentRandomNumb) ||
+                userAnswer.equalsIgnoreCase("no") && !isEven(presentRandomNumb)) {
             System.out.println("Correct!");
         } else {
             System.out.println("you made Mistake");
