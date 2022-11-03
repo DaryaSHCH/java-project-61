@@ -21,7 +21,8 @@ public class Engine {
         do {
             System.out.print(message);
             userAnswer = SCAN.nextLine();
-        } while (userAnswer.trim().equals(""));
+        } while (!SCAN.hasNextLine());
+        //while (userAnswer.trim().equals(""));
         return userAnswer;
     }
 
