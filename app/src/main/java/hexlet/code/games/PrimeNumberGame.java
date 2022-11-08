@@ -18,7 +18,9 @@ public class PrimeNumberGame {
             int randomNumber = Engine.getRandomNumberToHundred();
             String userAnswer;
             String correctAnswer;
-            userAnswer = Engine.getUserStringAnswer(StaticVariables.QUESTION + randomNumber + "\nYour answer: ");
+            userAnswer = Engine.getUserStringAnswer(StaticVariables.QUESTION + randomNumber);
+            System.out.println(StaticVariables.ANSWER + userAnswer);
+            correctAnswer = getCorrectAnswer(randomNumber);
             if ((userAnswer.equalsIgnoreCase("yes") && isPrime(randomNumber))
                     || (userAnswer.equalsIgnoreCase("no") && !isPrime(randomNumber))) {
                 System.out.println("Correct!");
@@ -26,19 +28,16 @@ public class PrimeNumberGame {
             } else {
                 if (userAnswer.equalsIgnoreCase("yes") && !isPrime(randomNumber)) {
                     correctAnswer = "no";
-                    System.out.println("'" + userAnswer + "'" + "is wrong answer ;(. Correct answer was '" +
-                            correctAnswer + "'.\nLet's try again, " + App.USER_NAME + "!");
                 } else {
                     correctAnswer = "yes";
-                    System.out.println("'" + userAnswer + "'" + "is wrong answer ;(. Correct answer was '" +
-                            correctAnswer + "'.\nLet's try again, " + App.USER_NAME + "!");
                 }
+                System.out.println("'" + userAnswer + "'" + " is wrong answer ;(. Correct answer was '" +
+                        correctAnswer + "'.\nLet's try again, " + App.USER_NAME + "!");
+                break;
             }
         }
         if (counterRightAnswer >= StaticVariables.TRIES) {
             System.out.println("Congratulations, " + App.USER_NAME + "!");
-        } else {
-            System.out.println("Quantity correct answers: " + counterRightAnswer + "\nGAME OVER");
         }
     }
 
@@ -55,5 +54,14 @@ public class PrimeNumberGame {
                     return false;
             return true;
         }
+    }
+    private static String getCorrectAnswer(int randomNumb) {
+        String correctAnswer;
+        if (isPrime(randomNumb)) {
+            correctAnswer = "yes";
+        } else {
+            correctAnswer = "no";
+        }
+        return correctAnswer;
     }
 }
