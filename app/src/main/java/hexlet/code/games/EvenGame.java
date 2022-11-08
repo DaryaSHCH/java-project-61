@@ -25,7 +25,7 @@ public class EvenGame {
             } else {
                 System.out.println("'" + userAnswer + "'" + " is wrong answer ;(. Correct answer was '" +
                         correctAnswer + "'.\nLet's try again, " + App.USER_NAME + "!");
-                App.main(null);
+                break;
             }
         }
 
@@ -42,15 +42,6 @@ public class EvenGame {
             correctAnswer = "no";
         }
         return correctAnswer;
-    }
-
-    private static void checkRightAnswer(int presentRandomNumb, String userAnswer) {
-        if (userAnswer.equalsIgnoreCase("yes") && isEven(presentRandomNumb) ||
-                userAnswer.equalsIgnoreCase("no") && !isEven(presentRandomNumb)) {
-            System.out.println("Correct!");
-        } else {
-            System.out.println("you made Mistake");
-        }
     }
 
     public static boolean isCorrect(String correctAnswer, String userAnswer) {
