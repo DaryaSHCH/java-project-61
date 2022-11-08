@@ -21,7 +21,8 @@ public class GreatestCommonDivisorGame {
             int userAnswer;
             System.out.println(QUESTION + "\n" + firstNumberForUserTask + " " + secondNumberForUserTask + "\nYour answer: ");
             userAnswer = Engine.getUserIntegerAnswer(QUESTION + firstNumberForUserTask + " "
-                    + secondNumberForUserTask + "\nYour answer: ");
+                    + secondNumberForUserTask);
+            System.out.println(StaticVariables.ANSWER + userAnswer);
             correctAnswer = getGCD(firstNumberForUserTask, secondNumberForUserTask);
             if (isCorrect(correctAnswer, userAnswer)) {
                 counterCorrectAnswer++;
@@ -30,12 +31,11 @@ public class GreatestCommonDivisorGame {
                 System.out.println("'" + userAnswer + "'" + "is wrong answer ;(. Correct answer was '" +
                         correctAnswer + "'.\n" +
                         "Let's try again, " + App.USER_NAME + "!");
+                break;
             }
         }
         if (counterCorrectAnswer >= StaticVariables.TRIES) {
             System.out.println("Congratulations, " + App.USER_NAME + "!");
-        } else {
-            System.out.println("Quantity of correct answers: " + counterCorrectAnswer + "\nGAME OVER");
         }
     }
 
@@ -47,10 +47,6 @@ public class GreatestCommonDivisorGame {
     }
 
     public static boolean isCorrect(int correctAnswer, int userAnswer) {
-        if (correctAnswer == userAnswer) {
-            return true;
-        } else {
-            return false;
-        }
+        return correctAnswer == userAnswer;
     }
 }
