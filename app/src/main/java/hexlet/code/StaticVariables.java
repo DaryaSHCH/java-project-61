@@ -12,5 +12,7 @@ public class StaticVariables {
 
     public final static String QUESTION = "Question: ";
 
+    public final static String ANSWER = "Your answer: ";
+
     public final static int TRIES = 3;
 }
