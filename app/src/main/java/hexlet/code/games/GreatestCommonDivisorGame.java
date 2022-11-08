@@ -19,7 +19,7 @@ public class GreatestCommonDivisorGame {
             int firstNumberForUserTask = Engine.getRandomNumberToHundred();
             int secondNumberForUserTask = Engine.getRandomNumberToHundred();
             int userAnswer;
-            System.out.println(QUESTION + "\n" + firstNumberForUserTask + " " + secondNumberForUserTask + "\nYour answer: ");
+            System.out.println(QUESTION  + firstNumberForUserTask + " " + secondNumberForUserTask);
             userAnswer = Engine.getUserIntegerAnswer(QUESTION + firstNumberForUserTask + " "
                     + secondNumberForUserTask);
             System.out.println(StaticVariables.ANSWER + userAnswer);
@@ -28,7 +28,7 @@ public class GreatestCommonDivisorGame {
                 counterCorrectAnswer++;
                 System.out.println("Correct!");
             } else {
-                System.out.println("'" + userAnswer + "'" + "is wrong answer ;(. Correct answer was '" +
+                System.out.println("'" + userAnswer + "'" + " is wrong answer ;(. Correct answer was '" +
                         correctAnswer + "'.\n" +
                         "Let's try again, " + App.USER_NAME + "!");
                 break;
