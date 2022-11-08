@@ -19,55 +19,51 @@ public class ArithmeticProgression {
             if (randomNumbForInterval <= 3) {
                 int[] firstProgression = getProgression(2);
                 int indexMissingElementFirstProgression = getIndexMissingElement(Engine.getRandomNumberToTen());
-                System.out.println(StaticVariables.QUESTION + getStringProgression(firstProgression, indexMissingElementFirstProgression) +
-                        "\nYour answer: ");
-                userAnswer = Engine.getUserIntegerAnswer(StaticVariables.QUESTION + getStringProgression(firstProgression, indexMissingElementFirstProgression) +
-                        "\nYour answer: ");
+                System.out.println(StaticVariables.QUESTION + getStringProgression(firstProgression, indexMissingElementFirstProgression));
+                userAnswer = Engine.getUserIntegerAnswer(StaticVariables.QUESTION + getStringProgression(firstProgression, indexMissingElementFirstProgression));
+                System.out.println(StaticVariables.ANSWER + userAnswer);
                 correctAnswer = firstProgression[indexMissingElementFirstProgression];
                 if (isCorrect(correctAnswer, userAnswer)) {
                     counterRightAnswer++;
                     System.out.println("Correct!");
                 } else {
-                    System.out.println("'" + userAnswer + "'" + "is wrong answer ;(. Correct answer was '" +
+                    System.out.println("'" + userAnswer + "'" + " is wrong answer ;(. Correct answer was '" +
                             correctAnswer + "'.\nLet's try again, " + App.USER_NAME + "!");
+                    break;
                 }
             } else if (randomNumbForInterval <= 10 && randomNumbForInterval > 5) {
                 int[] secondProgression = getProgression(3);
                 int indexMissingElementSecondProgression = getIndexMissingElement(Engine.getRandomNumberToTen());
-                System.out.println(StaticVariables.QUESTION + getStringProgression(secondProgression, indexMissingElementSecondProgression) +
-                        "\nYour answer: ");
-                userAnswer = Engine.getUserIntegerAnswer(StaticVariables.QUESTION + getStringProgression(secondProgression, indexMissingElementSecondProgression) +
-                        "\nYour answer: ");
+                System.out.println(StaticVariables.QUESTION + getStringProgression(secondProgression, indexMissingElementSecondProgression));
+                userAnswer = Engine.getUserIntegerAnswer(StaticVariables.QUESTION + getStringProgression(secondProgression, indexMissingElementSecondProgression));
+                System.out.println(StaticVariables.ANSWER + userAnswer);
                 correctAnswer = secondProgression[indexMissingElementSecondProgression];
                 if (isCorrect(correctAnswer, userAnswer)) {
                     counterRightAnswer++;
                     System.out.println("Correct!");
                 } else {
-                    System.out.println("'" + userAnswer + "'" + "is wrong answer ;(. Correct answer was '" +
+                    System.out.println("'" + userAnswer + "'" + " is wrong answer ;(. Correct answer was '" +
                             correctAnswer + "'.\nLet's try again, " + App.USER_NAME + "!");
+                    break;
                 }
             } else {
                 int[] thirdProgression = getProgression(5);
                 int indexMissingElementThirdProgression = getIndexMissingElement(Engine.getRandomNumberToTen());
-                System.out.println(StaticVariables.QUESTION + getStringProgression(thirdProgression, indexMissingElementThirdProgression) +
-                        "\nYour answer: ");
-                userAnswer = Engine.getUserIntegerAnswer(StaticVariables.QUESTION + getStringProgression(thirdProgression, indexMissingElementThirdProgression) +
-                        "\nYour answer: ");
+                System.out.println(StaticVariables.QUESTION + getStringProgression(thirdProgression, indexMissingElementThirdProgression));
+                userAnswer = Engine.getUserIntegerAnswer(StaticVariables.QUESTION + getStringProgression(thirdProgression, indexMissingElementThirdProgression));
+                System.out.println(StaticVariables.ANSWER + userAnswer);
                 correctAnswer = thirdProgression[indexMissingElementThirdProgression];
                 if (isCorrect(correctAnswer, userAnswer)) {
                     counterRightAnswer++;
                     System.out.println("Correct!");
                 } else {
-                    System.out.println("'" + userAnswer + "'" + "is wrong answer ;(. Correct answer was '" +
+                    System.out.println("'" + userAnswer + "'" + " is wrong answer ;(. Correct answer was '" +
                             correctAnswer + "'.\nLet's try again, " + App.USER_NAME + "!");
                 }
             }
         }
         if (counterRightAnswer >= StaticVariables.TRIES) {
             System.out.println("Congratulations, " + App.USER_NAME + "!");
-            App.main(null);
-        } else {
-            System.out.println("Quantity correct answers: " + counterRightAnswer + "\nGAME OVER");
         }
     }
 
@@ -124,10 +120,6 @@ public class ArithmeticProgression {
     }
 
     public static boolean isCorrect(int correctAnswer, int userAnswer) {
-        if (correctAnswer == userAnswer) {
-            return true;
-        } else {
-            return false;
-        }
+        return correctAnswer == userAnswer;
     }
 }
