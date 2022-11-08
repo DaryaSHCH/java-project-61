@@ -4,7 +4,7 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class Engine {
-    static Scanner SCAN = new Scanner(System.in);
+    public static Scanner SCAN = new Scanner(System.in);
 
     static int inputChoiceNumber() {
         int number;
@@ -21,8 +21,7 @@ public class Engine {
         do {
             System.out.print(message);
             userAnswer = SCAN.nextLine();
-        } while (!SCAN.hasNextLine());
-        //while (userAnswer.trim().equals(""));
+        } while (userAnswer.trim().equals(""));
         return userAnswer;
     }
 
