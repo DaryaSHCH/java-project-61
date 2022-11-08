@@ -16,7 +16,7 @@ public class EvenGame {
         for (int i = 0; i < StaticVariables.TRIES; i++) {
             int presentRandomNumb = Engine.getRandomNumberToTen();
             String userAnswer = Engine.getUserStringAnswer(StaticVariables.QUESTION + presentRandomNumb);
-            System.out.println("\nYour answer: " + userAnswer);
+            System.out.println("Your answer: " + userAnswer);
             correctAnswer = getCorrectAnswer(presentRandomNumb);
             if ((userAnswer.equalsIgnoreCase("yes") && isEven(presentRandomNumb))
                     || (userAnswer.equalsIgnoreCase("no") && !isEven(presentRandomNumb))) {
