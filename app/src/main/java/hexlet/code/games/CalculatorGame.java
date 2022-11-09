@@ -69,6 +69,7 @@ public class CalculatorGame {
                 } else {
                     System.out.println("'" + userAnswer + "'" + " is wrong answer ;(. Correct answer was '"
                             + correctAnswer + "'.\nLet's try again, " + App.getUserName() + "!");
+                    break;
                 }
             }
         }
