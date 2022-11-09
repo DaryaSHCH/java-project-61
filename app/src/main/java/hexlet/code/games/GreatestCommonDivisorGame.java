@@ -29,19 +29,19 @@ public class GreatestCommonDivisorGame {
                 System.out.println("Correct!");
             } else {
                 System.out.println("'" + userAnswer + "'" + " is wrong answer ;(. Correct answer was '"
-                        + correctAnswer + "'.\n" +
-                        "Let's try again, " + App.USER_NAME + "!");
+                        + correctAnswer + "'.\n" + "Let's try again, " + App.userName + "!");
                 break;
             }
         }
         if (counterCorrectAnswer >= StaticVariables.TRIES) {
-            System.out.println("Congratulations, " + App.USER_NAME + "!");
+            System.out.println("Congratulations, " + App.userName + "!");
         }
     }
 
     public static int getGCD(int firstNumber, int secondNumber) {
-        if (firstNumber == 0)
+        if (firstNumber == 0) {
             return secondNumber;
+        }
 
         return getGCD(secondNumber % firstNumber, firstNumber);
     }
