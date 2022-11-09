@@ -10,7 +10,7 @@ public class Engine {
         int number;
         while (!SCAN.hasNextInt()) {
             var line = SCAN.nextLine();
-            System.out.println(App.USER_CHOICE);
+            System.out.println(StaticVariables.USER_CHOICE);
         }
         number = SCAN.nextInt();
         return number;
@@ -26,15 +26,15 @@ public class Engine {
     }
 
     public static int getRandomNumberToTen() {
-        int min = 1;
-        int max = 10;
+        final int min = 1;
+        final int max = 10;
         Random random = new Random();
         return random.nextInt(max - min) + min;
     }
 
     public static int getRandomNumberToHundred() {
-        int min = 1;
-        int max = 100;
+        final int min = 1;
+        final int max = 100;
         Random random = new Random();
         return random.nextInt(max - min) + min;
     }
