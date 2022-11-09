@@ -5,12 +5,12 @@ import hexlet.code.Engine;
 import hexlet.code.StaticVariables;
 
 public class ArithmeticProgression {
-    static final int determinantFirstOperation = 3;
-    static final int firstDeterminantSecondOperation = 10;
-    static final int secondDeterminantSecondOperation = 5;
-    static final int intervalFirstProgression = 2;
-    static final int intervalSecondProgression = 3;
-    static final int intervalThirdProgression = 5;
+    static final int DETERMINANT_FIRST_OPERATION = 3;
+    static final int FIRST_DETERMINANT_SECOND_OPERATION = 10;
+    static final int SECOND_DETERMINANT_SECOND_OPERATION = 5;
+    static final int INTERVAL_FIRST_PROGRESSION = 2;
+    static final int INTERVAL_SECOND_PROGRESSION = 3;
+    static final int INTERVAL_THIRD_PROGRESSION = 5;
     public static void start() {
         System.out.println("What number is missing in the progression?");
         getArithmeticProgressionGame();
@@ -23,8 +23,8 @@ public class ArithmeticProgression {
         for (int i = 0; i < StaticVariables.TRIES; i++) {
             int randomNumbForInterval = Engine.getRandomNumberToTen();
             int userAnswer;
-            if (randomNumbForInterval <= determinantFirstOperation) {
-                int[] firstProgression = getProgression(intervalFirstProgression);
+            if (randomNumbForInterval <= DETERMINANT_FIRST_OPERATION) {
+                int[] firstProgression = getProgression(INTERVAL_FIRST_PROGRESSION);
                 int indexMissingElementFirstProgression = getIndexMissingElement(Engine.getRandomNumberToTen());
                 System.out.println(StaticVariables.QUESTION + getStringProgression(firstProgression,
                         indexMissingElementFirstProgression));
@@ -40,9 +40,9 @@ public class ArithmeticProgression {
                             + correctAnswer + "'.\nLet's try again, " + App.userName + "!");
                     break;
                 }
-            } else if (randomNumbForInterval <= firstDeterminantSecondOperation
-                    && randomNumbForInterval > secondDeterminantSecondOperation) {
-                int[] secondProgression = getProgression(intervalSecondProgression);
+            } else if (randomNumbForInterval <= FIRST_DETERMINANT_SECOND_OPERATION
+                    && randomNumbForInterval > SECOND_DETERMINANT_SECOND_OPERATION) {
+                int[] secondProgression = getProgression(INTERVAL_SECOND_PROGRESSION);
                 int indexMissingElementSecondProgression = getIndexMissingElement(Engine.getRandomNumberToTen());
                 System.out.println(StaticVariables.QUESTION + getStringProgression(secondProgression,
                         indexMissingElementSecondProgression));
@@ -59,10 +59,12 @@ public class ArithmeticProgression {
                     break;
                 }
             } else {
-                int[] thirdProgression = getProgression(intervalThirdProgression);
+                int[] thirdProgression = getProgression(INTERVAL_THIRD_PROGRESSION);
                 int indexMissingElementThirdProgression = getIndexMissingElement(Engine.getRandomNumberToTen());
-                System.out.println(StaticVariables.QUESTION + getStringProgression(thirdProgression, indexMissingElementThirdProgression));
-                userAnswer = Engine.getUserIntegerAnswer(StaticVariables.QUESTION + getStringProgression(thirdProgression, indexMissingElementThirdProgression));
+                System.out.println(StaticVariables.QUESTION + getStringProgression(thirdProgression,
+                        indexMissingElementThirdProgression));
+                userAnswer = Engine.getUserIntegerAnswer(StaticVariables.QUESTION
+                        + getStringProgression(thirdProgression, indexMissingElementThirdProgression));
                 System.out.println(StaticVariables.ANSWER + userAnswer);
                 correctAnswer = thirdProgression[indexMissingElementThirdProgression];
                 if (isCorrect(correctAnswer, userAnswer)) {
@@ -81,7 +83,9 @@ public class ArithmeticProgression {
     }
 
     public static int[] getProgression(int intervalBetweenNumbers) {
-        int[] progression = new int[10];
+        final int progressionLength = 10;
+        final int progressionIntervalPattern = 3;
+        int[] progression = new int[progressionLength];
         int firstElement = Engine.getRandomNumberToHundred();
         progression[0] = firstElement;
 
@@ -89,13 +93,13 @@ public class ArithmeticProgression {
 
             progression[i] = firstElement++;
         }
-        int[] progression1 = new int[10];
+        int[] progression1 = new int[progressionLength];
 
         for (int i = 0; i < progression.length; i++) {
             if (intervalBetweenNumbers == 2) {
                 firstElement++;
                 progression1[i] = firstElement++;
-            } else if (intervalBetweenNumbers == 3) {
+            } else if (intervalBetweenNumbers == progressionIntervalPattern) {
                 firstElement++;
                 firstElement++;
                 progression1[i] = firstElement++;
