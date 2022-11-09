@@ -48,10 +48,10 @@ public class Engine {
         userAnswer = scan.nextInt();
         return userAnswer;
     }
-    public static void setScan(Scanner scan) {
-        Engine.scan = scan;
+    private static void setScan(Scanner scanner) {
+        Engine.scan = scanner;
     }
-    public static Scanner getScan() {
+    private static Scanner getScan() {
         return scan;
     }
 
