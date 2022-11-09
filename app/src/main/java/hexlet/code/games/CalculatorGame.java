@@ -37,7 +37,7 @@ public class CalculatorGame {
                     System.out.println("Correct!");
                 } else {
                     System.out.println("'" + userAnswer + "'" + "is wrong answer ;(. Correct answer was '"
-                            + correctAnswer + "'.\nLet's try again, " + App.USER_NAME + "!");
+                            + correctAnswer + "'.\nLet's try again, " + App.userName + "!");
                     break;
                 }
             } else if (randomNumberForMathExample <= firstDeterminantSecondOperation
@@ -53,7 +53,7 @@ public class CalculatorGame {
                     System.out.println("Correct!");
                 } else {
                     System.out.println("'" + userAnswer + "'" + "is wrong answer ;(. Correct answer was '"
-                            + correctAnswer + "'.\nLet's try again, " + App.USER_NAME + "!");
+                            + correctAnswer + "'.\nLet's try again, " + App.userName + "!");
                     break;
                 }
             } else {
@@ -68,12 +68,12 @@ public class CalculatorGame {
                     System.out.println("Correct!");
                 } else {
                     System.out.println("'" + userAnswer + "'" + " is wrong answer ;(. Correct answer was '"
-                            + correctAnswer + "'.\nLet's try again, " + App.USER_NAME + "!");
+                            + correctAnswer + "'.\nLet's try again, " + App.userName + "!");
                 }
             }
         }
         if (counterRightAnswer >= StaticVariables.TRIES) {
-            System.out.println("Congratulations, " + App.USER_NAME + "!");
+            System.out.println("Congratulations, " + App.userName + "!");
         }
     }
 
