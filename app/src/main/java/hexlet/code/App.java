@@ -1,29 +1,23 @@
 package hexlet.code;
 
-import hexlet.code.games.*;
+import hexlet.code.games.EvenGame;
+import hexlet.code.games.CalculatorGame;
+import hexlet.code.games.GreatestCommonDivisorGame;
+import hexlet.code.games.ArithmeticProgression;
+import hexlet.code.games.PrimeNumberGame;
 
 import static hexlet.code.Cli.greetUser;
 import static hexlet.code.Engine.closeSCAN;
 
 public class App {
     public static String USER_NAME;
-    static String USER_CHOICE = """
-            Please enter the game number and press Enter\s
-            1 - Greet
-            2 - Even\s
-            3 - Calc\s
-            4 - GCD\s
-            5 - Progression\s
-            6 - Prime\s
-            0 - Exit""";
-
 
     public static void main(String[] args) {
-        System.out.println(App.USER_CHOICE);
+        System.out.println(StaticVariables.USER_CHOICE);
         int numberUserChoice;
         do {
             numberUserChoice = Engine.inputChoiceNumber();
-        } while (numberUserChoice > 6);
+        } while (numberUserChoice > StaticVariables.USER_CHOICE_FOR_PRIME);
 
         if (numberUserChoice == StaticVariables.USER_CHOICE_FOR_GREETING) {
             greetUser();
