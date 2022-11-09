@@ -37,7 +37,7 @@ public class ArithmeticProgression {
                     System.out.println("Correct!");
                 } else {
                     System.out.println("'" + userAnswer + "'" + " is wrong answer ;(. Correct answer was '"
-                            + correctAnswer + "'.\nLet's try again, " + App.userName + "!");
+                            + correctAnswer + "'.\nLet's try again, " + App.getUserName() + "!");
                     break;
                 }
             } else if (randomNumbForInterval <= FIRST_DETERMINANT_SECOND_OPERATION
@@ -55,7 +55,7 @@ public class ArithmeticProgression {
                     System.out.println("Correct!");
                 } else {
                     System.out.println("'" + userAnswer + "'" + " is wrong answer ;(. Correct answer was '"
-                            + correctAnswer + "'.\nLet's try again, " + App.userName + "!");
+                            + correctAnswer + "'.\nLet's try again, " + App.getUserName() + "!");
                     break;
                 }
             } else {
@@ -72,13 +72,13 @@ public class ArithmeticProgression {
                     System.out.println("Correct!");
                 } else {
                     System.out.println("'" + userAnswer + "'" + " is wrong answer ;(. Correct answer was '"
-                            + correctAnswer + "'.\nLet's try again, " + App.userName + "!");
+                            + correctAnswer + "'.\nLet's try again, " + App.getUserName() + "!");
                     break;
                 }
             }
         }
         if (counterRightAnswer >= StaticVariables.TRIES) {
-            System.out.println("Congratulations, " + App.userName + "!");
+            System.out.println("Congratulations, " + App.getUserName() + "!");
         }
     }
 
