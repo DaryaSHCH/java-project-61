@@ -8,7 +8,7 @@ public class Cli {
         String userName;
         userName = getUserName("May I have your name?");
         System.out.println("Hello, " + userName + "!");
-        App.userName = userName;
+        App.setUserName(userName);
     }
 
     public static String getUserName(String message) {
