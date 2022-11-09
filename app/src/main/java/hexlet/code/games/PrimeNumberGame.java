@@ -31,8 +31,8 @@ public class PrimeNumberGame {
                 } else {
                     correctAnswer = "yes";
                 }
-                System.out.println("'" + userAnswer + "'" + " is wrong answer ;(. Correct answer was '" +
-                        correctAnswer + "'.\nLet's try again, " + App.USER_NAME + "!");
+                System.out.println("'" + userAnswer + "'" + " is wrong answer ;(. Correct answer was '"
+                        + correctAnswer + "'.\nLet's try again, " + App.USER_NAME + "!");
                 break;
             }
         }
@@ -42,14 +42,18 @@ public class PrimeNumberGame {
     }
 
     public static boolean isPrime(int number) {
+        final int caseForOne = 1;
+        final int caseForThree = 3;
+        final int firstDeterminantCycle = 5;
+        final int secondDeterminantCycle = 6;
         {
-            if (number <= 1)
+            if (number <= caseForOne)
                 return false;
-            if (number <= 3)
+            if (number <= caseForThree)
                 return true;
-            if (number % 2 == 0 || number % 3 == 0)
+            if (number % 2 == 0 || number % caseForThree == 0)
                 return false;
-            for (int i = 5; i * i <= number; i = i + 6)
+            for (int i = firstDeterminantCycle; i * i <= number; i = i + secondDeterminantCycle)
                 if (number % i == 0 || number % (i + 2) == 0)
                     return false;
             return true;
