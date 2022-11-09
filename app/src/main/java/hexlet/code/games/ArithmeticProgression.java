@@ -13,37 +13,44 @@ public class ArithmeticProgression {
     public static void getArithmeticProgressionGame() {
         int correctAnswer;
         int counterRightAnswer = 0;
+        final int determinantFirstOperation = 3;
+        final int firstDeterminantSecondOperation = 10;
+        final int secondDeterminantSecondOperation = 5;
         for (int i = 0; i < StaticVariables.TRIES; i++) {
             int randomNumbForInterval = Engine.getRandomNumberToTen();
             int userAnswer;
-            if (randomNumbForInterval <= 3) {
+            if (randomNumbForInterval <= determinantFirstOperation) {
                 int[] firstProgression = getProgression(2);
                 int indexMissingElementFirstProgression = getIndexMissingElement(Engine.getRandomNumberToTen());
-                System.out.println(StaticVariables.QUESTION + getStringProgression(firstProgression, indexMissingElementFirstProgression));
-                userAnswer = Engine.getUserIntegerAnswer(StaticVariables.QUESTION + getStringProgression(firstProgression, indexMissingElementFirstProgression));
+                System.out.println(StaticVariables.QUESTION + getStringProgression(firstProgression,
+                        indexMissingElementFirstProgression));
+                userAnswer = Engine.getUserIntegerAnswer(StaticVariables.QUESTION
+                        + getStringProgression(firstProgression, indexMissingElementFirstProgression));
                 System.out.println(StaticVariables.ANSWER + userAnswer);
                 correctAnswer = firstProgression[indexMissingElementFirstProgression];
                 if (isCorrect(correctAnswer, userAnswer)) {
                     counterRightAnswer++;
                     System.out.println("Correct!");
                 } else {
-                    System.out.println("'" + userAnswer + "'" + " is wrong answer ;(. Correct answer was '" +
-                            correctAnswer + "'.\nLet's try again, " + App.USER_NAME + "!");
+                    System.out.println("'" + userAnswer + "'" + " is wrong answer ;(. Correct answer was '"
+                            + correctAnswer + "'.\nLet's try again, " + App.USER_NAME + "!");
                     break;
                 }
-            } else if (randomNumbForInterval <= 10 && randomNumbForInterval > 5) {
+            } else if (randomNumbForInterval <= firstDeterminantSecondOperation  && randomNumbForInterval > secondDeterminantSecondOperation) {
                 int[] secondProgression = getProgression(3);
                 int indexMissingElementSecondProgression = getIndexMissingElement(Engine.getRandomNumberToTen());
-                System.out.println(StaticVariables.QUESTION + getStringProgression(secondProgression, indexMissingElementSecondProgression));
-                userAnswer = Engine.getUserIntegerAnswer(StaticVariables.QUESTION + getStringProgression(secondProgression, indexMissingElementSecondProgression));
+                System.out.println(StaticVariables.QUESTION + getStringProgression(secondProgression,
+                        indexMissingElementSecondProgression));
+                userAnswer = Engine.getUserIntegerAnswer(StaticVariables.QUESTION
+                        + getStringProgression(secondProgression, indexMissingElementSecondProgression));
                 System.out.println(StaticVariables.ANSWER + userAnswer);
                 correctAnswer = secondProgression[indexMissingElementSecondProgression];
                 if (isCorrect(correctAnswer, userAnswer)) {
                     counterRightAnswer++;
                     System.out.println("Correct!");
                 } else {
-                    System.out.println("'" + userAnswer + "'" + " is wrong answer ;(. Correct answer was '" +
-                            correctAnswer + "'.\nLet's try again, " + App.USER_NAME + "!");
+                    System.out.println("'" + userAnswer + "'" + " is wrong answer ;(. Correct answer was '"
+                            + correctAnswer + "'.\nLet's try again, " + App.USER_NAME + "!");
                     break;
                 }
             } else {
@@ -57,8 +64,8 @@ public class ArithmeticProgression {
                     counterRightAnswer++;
                     System.out.println("Correct!");
                 } else {
-                    System.out.println("'" + userAnswer + "'" + " is wrong answer ;(. Correct answer was '" +
-                            correctAnswer + "'.\nLet's try again, " + App.USER_NAME + "!");
+                    System.out.println("'" + userAnswer + "'" + " is wrong answer ;(. Correct answer was '"
+                            + correctAnswer + "'.\nLet's try again, " + App.USER_NAME + "!");
                 }
             }
         }
@@ -110,10 +117,14 @@ public class ArithmeticProgression {
     }
 
     public static int getIndexMissingElement(int index) {
-        if (index == 1) {
-            return 0;
-        } else if (index == 10) {
-            return 9;
+        final int startIndex = 0;
+        final int firstIndex = 1;
+        final int lastIndex = 10;
+        final int preLastIndex = 9;
+        if (index == firstIndex) {
+            return startIndex;
+        } else if (index == lastIndex) {
+            return preLastIndex;
         } else {
             return index;
         }
