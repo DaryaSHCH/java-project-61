@@ -23,8 +23,8 @@ public class EvenGame {
                 System.out.println("Correct!");
                 counterCorrectAnswer++;
             } else {
-                System.out.println("'" + userAnswer + "'" + " is wrong answer ;(. Correct answer was '" +
-                        correctAnswer + "'.\nLet's try again, " + App.USER_NAME + "!");
+                System.out.println("'" + userAnswer + "'" + " is wrong answer ;(. Correct answer was '"
+                        + correctAnswer + "'.\nLet's try again, " + App.USER_NAME + "!");
                 break;
             }
         }
