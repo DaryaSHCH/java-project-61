@@ -24,13 +24,13 @@ public class EvenGame {
                 counterCorrectAnswer++;
             } else {
                 System.out.println("'" + userAnswer + "'" + " is wrong answer ;(. Correct answer was '"
-                        + correctAnswer + "'.\nLet's try again, " + App.USER_NAME + "!");
+                        + correctAnswer + "'.\nLet's try again, " + App.userName + "!");
                 break;
             }
         }
 
         if (counterCorrectAnswer >= StaticVariables.TRIES) {
-            System.out.println("Congratulations, " + App.USER_NAME + "!");
+            System.out.println("Congratulations, " + App.userName + "!");
         }
     }
 
