@@ -20,7 +20,7 @@ public class StaticVariables {
     static final int USER_CHOICE_FOR_PROGRESSION = 5;
     static final int USER_CHOICE_FOR_PRIME = 6;
 
-    public final static String QUESTION = "Question: ";
+    public static final String QUESTION = "Question: ";
 
     public static final String ANSWER = "Your answer: ";
 
