@@ -4,15 +4,15 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class Engine {
-    public static Scanner SCAN = new Scanner(System.in);
+    public static Scanner scan = new Scanner(System.in);
 
     static int inputChoiceNumber() {
         int number;
-        while (!SCAN.hasNextInt()) {
-            var line = SCAN.nextLine();
+        while (!scan.hasNextInt()) {
+            var line = scan.nextLine();
             System.out.println(StaticVariables.USER_CHOICE);
         }
-        number = SCAN.nextInt();
+        number = scan.nextInt();
         return number;
     }
 
@@ -20,7 +20,7 @@ public class Engine {
         String userAnswer;
         do {
             System.out.println(message);
-            userAnswer = SCAN.nextLine();
+            userAnswer = scan.nextLine();
         } while (userAnswer.trim().equals(""));
         return userAnswer;
     }
@@ -41,15 +41,15 @@ public class Engine {
 
     public static int getUserIntegerAnswer(String message) {
         int userAnswer;
-        while (!SCAN.hasNextInt()) {
-            var line = SCAN.nextLine();
+        while (!scan.hasNextInt()) {
+            var line = scan.nextLine();
             System.out.println(message);
         }
-        userAnswer = SCAN.nextInt();
+        userAnswer = scan.nextInt();
         return userAnswer;
     }
 
     public static void closeSCAN() {
-        SCAN.close();
+        scan.close();
     }
 }
