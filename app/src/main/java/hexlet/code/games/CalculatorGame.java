@@ -17,13 +17,15 @@ public class CalculatorGame {
     public static void getCalculatorGame() {
         int correctAnswer;
         int counterRightAnswer = 0;
-
+        final int determinantFirstOperation = 5;
+        final int firstDeterminantSecondOperation = 10;
+        final int secondDeterminantSecondOperation = 5;
         for (int i = 0; i < StaticVariables.TRIES; i++) {
             int firstNumberForUserTask = getRandomNumberToTen();
             int secondNumberForUserTask = getRandomNumberToTen();
             int randomNumberForMathExample = getRandomNumberToTen();
             int userAnswer;
-            if (randomNumberForMathExample < 5) {
+            if (randomNumberForMathExample < determinantFirstOperation) {
                 System.out.println(StaticVariables.QUESTION + firstNumberForUserTask + " + "
                         + secondNumberForUserTask);
                 userAnswer = Engine.getUserIntegerAnswer(StaticVariables.QUESTION + firstNumberForUserTask + " + "
@@ -34,11 +36,12 @@ public class CalculatorGame {
                     counterRightAnswer++;
                     System.out.println("Correct!");
                 } else {
-                    System.out.println("'" + userAnswer + "'" + "is wrong answer ;(. Correct answer was '" +
-                            correctAnswer + "'.\nLet's try again, " + App.USER_NAME + "!");
+                    System.out.println("'" + userAnswer + "'" + "is wrong answer ;(. Correct answer was '"
+                            + correctAnswer + "'.\nLet's try again, " + App.USER_NAME + "!");
                     break;
                 }
-            } else if (randomNumberForMathExample <= 10 && randomNumberForMathExample > 5) {
+            } else if (randomNumberForMathExample <= firstDeterminantSecondOperation
+                    && randomNumberForMathExample > secondDeterminantSecondOperation) {
                 System.out.println(StaticVariables.QUESTION + firstNumberForUserTask + " * "
                         + secondNumberForUserTask);
                 userAnswer = Engine.getUserIntegerAnswer(StaticVariables.QUESTION + firstNumberForUserTask + " * "
@@ -49,8 +52,8 @@ public class CalculatorGame {
                     counterRightAnswer++;
                     System.out.println("Correct!");
                 } else {
-                    System.out.println("'" + userAnswer + "'" + "is wrong answer ;(. Correct answer was '" +
-                            correctAnswer + "'.\nLet's try again, " + App.USER_NAME + "!");
+                    System.out.println("'" + userAnswer + "'" + "is wrong answer ;(. Correct answer was '"
+                            + correctAnswer + "'.\nLet's try again, " + App.USER_NAME + "!");
                     break;
                 }
             } else {
@@ -64,8 +67,8 @@ public class CalculatorGame {
                     counterRightAnswer++;
                     System.out.println("Correct!");
                 } else {
-                    System.out.println("'" + userAnswer + "'" + " is wrong answer ;(. Correct answer was '" +
-                            correctAnswer + "'.\nLet's try again, " + App.USER_NAME + "!");
+                    System.out.println("'" + userAnswer + "'" + " is wrong answer ;(. Correct answer was '"
+                            + correctAnswer + "'.\nLet's try again, " + App.USER_NAME + "!");
                 }
             }
         }
