@@ -4,7 +4,7 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class Engine {
-    public static Scanner scan = new Scanner(System.in);
+    static Scanner scan = new Scanner(System.in);
 
     static int inputChoiceNumber() {
         int number;
@@ -47,6 +47,12 @@ public class Engine {
         }
         userAnswer = scan.nextInt();
         return userAnswer;
+    }
+    public static void setScan(Scanner scan) {
+        Engine.scan = scan;
+    }
+    public static Scanner getScan() {
+        return scan;
     }
 
     public static void closeSCAN() {
