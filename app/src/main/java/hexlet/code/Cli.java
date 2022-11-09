@@ -1,6 +1,6 @@
 package hexlet.code;
 
-import static hexlet.code.Engine.SCAN;
+import static hexlet.code.Engine.scan;
 
 public class Cli {
     public static void greetUser() {
@@ -8,15 +8,15 @@ public class Cli {
         String userName;
         userName = getUserName("May I have your name?");
         System.out.println("Hello, " + userName + "!");
-        App.USER_NAME = userName;
+        App.userName = userName;
     }
 
     public static String getUserName(String message) {
         String userName;
-        userName = SCAN.nextLine();
+        userName = scan.nextLine();
         while (userName.trim().equals("")) {
             System.out.println(message);
-            userName = SCAN.nextLine();
+            userName = scan.nextLine();
         }
         return userName;
     }
