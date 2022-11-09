@@ -10,7 +10,7 @@ import static hexlet.code.Cli.greetUser;
 import static hexlet.code.Engine.closeSCAN;
 
 public class App {
-    public static String userName;
+    private static String userName;
 
     public static void main(String[] args) {
         System.out.println(StaticVariables.USER_CHOICE);
@@ -45,5 +45,11 @@ public class App {
             System.out.println("Your choice: " + StaticVariables.USER_CHOICE_FOR_EXIT + "\nGoodbye");
         }
         closeSCAN();
+    }
+    public static void setUserName(String userName) {
+        App.userName = userName;
+    }
+    public static String getUserName() {
+        return userName;
     }
 }
