@@ -71,6 +71,7 @@ public class ArithmeticProgression {
                 } else {
                     System.out.println("'" + userAnswer + "'" + " is wrong answer ;(. Correct answer was '"
                             + correctAnswer + "'.\nLet's try again, " + App.userName + "!");
+                    break;
                 }
             }
         }
