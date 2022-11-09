@@ -28,8 +28,8 @@ public class GreatestCommonDivisorGame {
                 counterCorrectAnswer++;
                 System.out.println("Correct!");
             } else {
-                System.out.println("'" + userAnswer + "'" + " is wrong answer ;(. Correct answer was '" +
-                        correctAnswer + "'.\n" +
+                System.out.println("'" + userAnswer + "'" + " is wrong answer ;(. Correct answer was '"
+                        + correctAnswer + "'.\n" +
                         "Let's try again, " + App.USER_NAME + "!");
                 break;
             }
