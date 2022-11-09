@@ -5,6 +5,12 @@ import hexlet.code.Engine;
 import hexlet.code.StaticVariables;
 
 public class ArithmeticProgression {
+    static final int determinantFirstOperation = 3;
+    static final int firstDeterminantSecondOperation = 10;
+    static final int secondDeterminantSecondOperation = 5;
+    static final int intervalFirstProgression = 2;
+    static final int intervalSecondProgression = 3;
+    static final int intervalThirdProgression = 5;
     public static void start() {
         System.out.println("What number is missing in the progression?");
         getArithmeticProgressionGame();
@@ -13,14 +19,12 @@ public class ArithmeticProgression {
     public static void getArithmeticProgressionGame() {
         int correctAnswer;
         int counterRightAnswer = 0;
-        final int determinantFirstOperation = 3;
-        final int firstDeterminantSecondOperation = 10;
-        final int secondDeterminantSecondOperation = 5;
+
         for (int i = 0; i < StaticVariables.TRIES; i++) {
             int randomNumbForInterval = Engine.getRandomNumberToTen();
             int userAnswer;
             if (randomNumbForInterval <= determinantFirstOperation) {
-                int[] firstProgression = getProgression(2);
+                int[] firstProgression = getProgression(intervalFirstProgression);
                 int indexMissingElementFirstProgression = getIndexMissingElement(Engine.getRandomNumberToTen());
                 System.out.println(StaticVariables.QUESTION + getStringProgression(firstProgression,
                         indexMissingElementFirstProgression));
@@ -33,11 +37,12 @@ public class ArithmeticProgression {
                     System.out.println("Correct!");
                 } else {
                     System.out.println("'" + userAnswer + "'" + " is wrong answer ;(. Correct answer was '"
-                            + correctAnswer + "'.\nLet's try again, " + App.USER_NAME + "!");
+                            + correctAnswer + "'.\nLet's try again, " + App.userName + "!");
                     break;
                 }
-            } else if (randomNumbForInterval <= firstDeterminantSecondOperation  && randomNumbForInterval > secondDeterminantSecondOperation) {
-                int[] secondProgression = getProgression(3);
+            } else if (randomNumbForInterval <= firstDeterminantSecondOperation
+                    && randomNumbForInterval > secondDeterminantSecondOperation) {
+                int[] secondProgression = getProgression(intervalSecondProgression);
                 int indexMissingElementSecondProgression = getIndexMissingElement(Engine.getRandomNumberToTen());
                 System.out.println(StaticVariables.QUESTION + getStringProgression(secondProgression,
                         indexMissingElementSecondProgression));
@@ -50,11 +55,11 @@ public class ArithmeticProgression {
                     System.out.println("Correct!");
                 } else {
                     System.out.println("'" + userAnswer + "'" + " is wrong answer ;(. Correct answer was '"
-                            + correctAnswer + "'.\nLet's try again, " + App.USER_NAME + "!");
+                            + correctAnswer + "'.\nLet's try again, " + App.userName + "!");
                     break;
                 }
             } else {
-                int[] thirdProgression = getProgression(5);
+                int[] thirdProgression = getProgression(intervalThirdProgression);
                 int indexMissingElementThirdProgression = getIndexMissingElement(Engine.getRandomNumberToTen());
                 System.out.println(StaticVariables.QUESTION + getStringProgression(thirdProgression, indexMissingElementThirdProgression));
                 userAnswer = Engine.getUserIntegerAnswer(StaticVariables.QUESTION + getStringProgression(thirdProgression, indexMissingElementThirdProgression));
@@ -65,12 +70,12 @@ public class ArithmeticProgression {
                     System.out.println("Correct!");
                 } else {
                     System.out.println("'" + userAnswer + "'" + " is wrong answer ;(. Correct answer was '"
-                            + correctAnswer + "'.\nLet's try again, " + App.USER_NAME + "!");
+                            + correctAnswer + "'.\nLet's try again, " + App.userName + "!");
                 }
             }
         }
         if (counterRightAnswer >= StaticVariables.TRIES) {
-            System.out.println("Congratulations, " + App.USER_NAME + "!");
+            System.out.println("Congratulations, " + App.userName + "!");
         }
     }
 
