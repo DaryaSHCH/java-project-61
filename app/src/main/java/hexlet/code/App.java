@@ -46,8 +46,8 @@ public class App {
         }
         closeSCAN();
     }
-    public static void setUserName(String userName) {
-        App.userName = userName;
+    public static void setUserName(String name) {
+        App.userName = name;
     }
     public static String getUserName() {
         return userName;
