@@ -29,12 +29,12 @@ public class GreatestCommonDivisorGame {
                 System.out.println("Correct!");
             } else {
                 System.out.println("'" + userAnswer + "'" + " is wrong answer ;(. Correct answer was '"
-                        + correctAnswer + "'.\n" + "Let's try again, " + App.userName + "!");
+                        + correctAnswer + "'.\n" + "Let's try again, " + App.getUserName() + "!");
                 break;
             }
         }
         if (counterCorrectAnswer >= StaticVariables.TRIES) {
-            System.out.println("Congratulations, " + App.userName + "!");
+            System.out.println("Congratulations, " + App.getUserName() + "!");
         }
     }
 
