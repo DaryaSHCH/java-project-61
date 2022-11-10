@@ -12,24 +12,36 @@ public class EvenGame {
 
     public static void getEvenGame() {
         int counterCorrectAnswer = 0;
+        int presentRandomNumb;
+        String userAnswer;
         String correctAnswer;
+        String result;
         for (int i = 0; i < StaticVariables.TRIES; i++) {
-            int presentRandomNumb = Engine.getRandomNumberToTen();
-            String userAnswer = Engine.getUserStringAnswer(StaticVariables.QUESTION + presentRandomNumb);
+            presentRandomNumb = Engine.getRandomNumberToTen();
+            userAnswer = Engine.getUserStringAnswer(StaticVariables.QUESTION + presentRandomNumb);
             System.out.println(StaticVariables.ANSWER + userAnswer);
             correctAnswer = getCorrectAnswer(presentRandomNumb);
-            if (isCorrect(correctAnswer, userAnswer)) {
-                System.out.println(StaticVariables.CORRECT_RESULT);
-                counterCorrectAnswer++;
-            } else {
-                System.out.println("'" + userAnswer + "'" + " is wrong answer ;(. Correct answer was '"
-                        + correctAnswer + "'.\nLet's try again, " + App.getUserName() + "!");
+            result = getResult(userAnswer, correctAnswer);
+            if (!result.equals(StaticVariables.CORRECT_RESULT)){
+                System.out.println(result);
                 break;
+            } else {
+                System.out.println(result);
+                counterCorrectAnswer++;
             }
         }
 
         if (counterCorrectAnswer >= StaticVariables.TRIES) {
             System.out.println("Congratulations, " + App.getUserName() + "!");
+        }
+    }
+
+    private static String getResult(String userAnswer, String correctAnswer) {
+        if (isCorrect(correctAnswer, userAnswer)) {
+            return StaticVariables.CORRECT_RESULT;
+        } else {
+            return "'" + userAnswer + "'" + " is wrong answer ;(. Correct answer was '"
+                    + correctAnswer + "'.\nLet's try again, " + App.getUserName() + "!";
         }
     }
 
