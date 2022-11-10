@@ -16,15 +16,19 @@ public class CalculatorGame {
 
     public static void getCalculatorGame() {
         int correctAnswer;
-        int counterRightAnswer = 0;
+        int counterCorrectAnswer = 0;
         final int determinantFirstOperation = 5;
         final int firstDeterminantSecondOperation = 10;
         final int secondDeterminantSecondOperation = 5;
+        int firstNumberForUserTask;
+        int secondNumberForUserTask;
+        int randomNumberForMathExample;
+        int userAnswer;
+        String result;
         for (int i = 0; i < StaticVariables.TRIES; i++) {
-            int firstNumberForUserTask = getRandomNumberToTen();
-            int secondNumberForUserTask = getRandomNumberToTen();
-            int randomNumberForMathExample = getRandomNumberToTen();
-            int userAnswer;
+            firstNumberForUserTask = getRandomNumberToTen();
+            secondNumberForUserTask = getRandomNumberToTen();
+            randomNumberForMathExample = getRandomNumberToTen();
             if (randomNumberForMathExample < determinantFirstOperation) {
                 System.out.println(StaticVariables.QUESTION + firstNumberForUserTask + " + "
                         + secondNumberForUserTask);
@@ -32,13 +36,13 @@ public class CalculatorGame {
                         + secondNumberForUserTask);
                 System.out.println(StaticVariables.ANSWER + userAnswer);
                 correctAnswer = firstNumberForUserTask + secondNumberForUserTask;
-                if (isCorrect(correctAnswer, userAnswer)) {
-                    counterRightAnswer++;
-                    System.out.println("Correct!");
-                } else {
-                    System.out.println("'" + userAnswer + "'" + "is wrong answer ;(. Correct answer was '"
-                            + correctAnswer + "'.\nLet's try again, " + App.getUserName() + "!");
+                result = getResult(userAnswer,correctAnswer);
+                if (!result.equals(StaticVariables.CORRECT_RESULT)){
+                    System.out.println(result);
                     break;
+                } else {
+                    System.out.println(result);
+                    counterCorrectAnswer++;
                 }
             } else if (randomNumberForMathExample <= firstDeterminantSecondOperation
                     && randomNumberForMathExample > secondDeterminantSecondOperation) {
@@ -48,13 +52,13 @@ public class CalculatorGame {
                         + secondNumberForUserTask);
                 System.out.println(StaticVariables.ANSWER + userAnswer);
                 correctAnswer = firstNumberForUserTask * secondNumberForUserTask;
-                if (isCorrect(correctAnswer, userAnswer)) {
-                    counterRightAnswer++;
-                    System.out.println("Correct!");
-                } else {
-                    System.out.println("'" + userAnswer + "'" + "is wrong answer ;(. Correct answer was '"
-                            + correctAnswer + "'.\nLet's try again, " + App.getUserName() + "!");
+                result = getResult(userAnswer, correctAnswer);
+                if (!result.equals(StaticVariables.CORRECT_RESULT)){
+                    System.out.println(result);
                     break;
+                } else {
+                    System.out.println(result);
+                    counterCorrectAnswer++;
                 }
             } else {
                 System.out.println(StaticVariables.QUESTION + firstNumberForUserTask + " - "
@@ -63,18 +67,26 @@ public class CalculatorGame {
                         + secondNumberForUserTask);
                 System.out.println(StaticVariables.ANSWER + userAnswer);
                 correctAnswer = firstNumberForUserTask - secondNumberForUserTask;
-                if (isCorrect(correctAnswer, userAnswer)) {
-                    counterRightAnswer++;
-                    System.out.println("Correct!");
-                } else {
-                    System.out.println("'" + userAnswer + "'" + " is wrong answer ;(. Correct answer was '"
-                            + correctAnswer + "'.\nLet's try again, " + App.getUserName() + "!");
+                result = getResult(userAnswer,correctAnswer);
+                if (!result.equals(StaticVariables.CORRECT_RESULT)){
+                    System.out.println(result);
                     break;
+                } else {
+                    System.out.println(result);
+                    counterCorrectAnswer++;
                 }
             }
         }
-        if (counterRightAnswer >= StaticVariables.TRIES) {
+        if (counterCorrectAnswer >= StaticVariables.TRIES) {
             System.out.println("Congratulations, " + App.getUserName() + "!");
+        }
+    }
+    private static String getResult(int userAnswer, int correctAnswer) {
+        if (isCorrect(correctAnswer, userAnswer)) {
+            return StaticVariables.CORRECT_RESULT;
+        } else {
+            return "'" + userAnswer + "'" + " is wrong answer ;(. Correct answer was '"
+                    + correctAnswer + "'.\nLet's try again, " + App.getUserName() + "!";
         }
     }
 
