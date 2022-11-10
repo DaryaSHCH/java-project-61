@@ -24,5 +24,7 @@ public class StaticVariables {
 
     public static final String ANSWER = "Your answer: ";
 
+    public static final String CORRECT_RESULT = "Correct!";
+
     public static final int TRIES = 3;
 }
