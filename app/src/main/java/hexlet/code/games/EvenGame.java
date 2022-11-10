@@ -18,9 +18,8 @@ public class EvenGame {
             String userAnswer = Engine.getUserStringAnswer(StaticVariables.QUESTION + presentRandomNumb);
             System.out.println(StaticVariables.ANSWER + userAnswer);
             correctAnswer = getCorrectAnswer(presentRandomNumb);
-            if ((userAnswer.equalsIgnoreCase("yes") && isEven(presentRandomNumb))
-                    || (userAnswer.equalsIgnoreCase("no") && !isEven(presentRandomNumb))) {
-                System.out.println("Correct!");
+            if (isCorrect(correctAnswer, userAnswer)) {
+                System.out.println(StaticVariables.CORRECT_RESULT);
                 counterCorrectAnswer++;
             } else {
                 System.out.println("'" + userAnswer + "'" + " is wrong answer ;(. Correct answer was '"
