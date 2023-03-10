@@ -38,7 +38,8 @@ public class CalculatorGame {
         int randomIndexForMathExample = Engine.generateRandomNumber(OPERATORS.length);
         String chosenOperator = OPERATORS[randomIndexForMathExample];
         String question = firstNumberForUserTask + " " + chosenOperator + " " + secondNumberForUserTask;
-        String answer = Integer.toString(getCalculatedResult(chosenOperator, firstNumberForUserTask, secondNumberForUserTask));
+        String answer = Integer.toString(getCalculatedResult(chosenOperator, firstNumberForUserTask,
+                secondNumberForUserTask));
 
         return new String[] {question, answer};
     }
