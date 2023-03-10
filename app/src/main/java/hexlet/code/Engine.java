@@ -58,4 +58,19 @@ public class Engine {
     public static void closeSCAN() {
         scan.close();
     }
+
+    public static void printResult(String userAnswer, String correctAnswer) {
+        if (userAnswer.equals(correctAnswer)) {
+            System.out.println("Correct!");
+        } else {
+            if (userAnswer.equals("yes")) {
+                correctAnswer = "no";
+            } else {
+                correctAnswer = "yes";
+            }
+            System.out.println("'" + userAnswer + "'" + " is wrong answer ;(. Correct answer was '"
+                    + correctAnswer + "'.\nLet's try again, " + App.getUserName() + "!");
+            System.exit(0);
+        }
+    }
 }
