@@ -43,14 +43,10 @@ public class EvenGame {
 
     private static String[] generateRoundData() {
         int number = Engine.getRandomNumberToTen();
-
         String questionNumber = String.valueOf(number);
-
         String[] roundsData = new String[2];
         roundsData[0] = questionNumber;
         roundsData[1] = getCorrectAnswer(number);
-
-
         return roundsData;
     }
 }
