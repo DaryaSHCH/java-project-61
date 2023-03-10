@@ -7,6 +7,8 @@ import hexlet.code.StaticVariables;
 import static hexlet.code.Engine.getRandomNumberToTen;
 
 public class CalculatorGame {
+
+    static final String[] OPERATORS = {"+", "-", "*"};
     public static void start() {
 
         System.out.println("What is the result of the expression?");
@@ -15,82 +17,51 @@ public class CalculatorGame {
     }
 
     public static void getCalculatorGame() {
-        int correctAnswer;
+        String correctAnswer;
         int counterCorrectAnswer = 0;
-        final int determinantFirstOperation = 5;
-        final int firstDeterminantSecondOperation = 10;
-        final int secondDeterminantSecondOperation = 5;
-        int firstNumberForUserTask;
-        int secondNumberForUserTask;
-        int randomNumberForMathExample;
-        int userAnswer;
+        String userAnswer;
         String result;
         for (int i = 0; i < StaticVariables.TRIES; i++) {
-            firstNumberForUserTask = getRandomNumberToTen();
-            secondNumberForUserTask = getRandomNumberToTen();
-            randomNumberForMathExample = getRandomNumberToTen();
-            if (randomNumberForMathExample < determinantFirstOperation) {
-                System.out.println(StaticVariables.QUESTION + firstNumberForUserTask + " + "
-                        + secondNumberForUserTask);
-                userAnswer = Engine.getUserIntegerAnswer(StaticVariables.QUESTION + firstNumberForUserTask + " + "
-                        + secondNumberForUserTask);
-                System.out.println(StaticVariables.ANSWER + userAnswer);
-                correctAnswer = firstNumberForUserTask + secondNumberForUserTask;
-                result = getResult(userAnswer, correctAnswer);
-                if (!result.equals(StaticVariables.CORRECT_RESULT)) {
-                    System.out.println(result);
-                    break;
-                } else {
-                    System.out.println(result);
-                    counterCorrectAnswer++;
-                }
-            } else if (randomNumberForMathExample <= firstDeterminantSecondOperation
-                    && randomNumberForMathExample > secondDeterminantSecondOperation) {
-                System.out.println(StaticVariables.QUESTION + firstNumberForUserTask + " * "
-                        + secondNumberForUserTask);
-                userAnswer = Engine.getUserIntegerAnswer(StaticVariables.QUESTION + firstNumberForUserTask + " * "
-                        + secondNumberForUserTask);
-                System.out.println(StaticVariables.ANSWER + userAnswer);
-                correctAnswer = firstNumberForUserTask * secondNumberForUserTask;
-                result = getResult(userAnswer, correctAnswer);
-                if (!result.equals(StaticVariables.CORRECT_RESULT)) {
-                    System.out.println(result);
-                    break;
-                } else {
-                    System.out.println(result);
-                    counterCorrectAnswer++;
-                }
-            } else {
-                System.out.println(StaticVariables.QUESTION + firstNumberForUserTask + " - "
-                        + secondNumberForUserTask);
-                userAnswer = Engine.getUserIntegerAnswer(StaticVariables.QUESTION + firstNumberForUserTask + " - "
-                        + secondNumberForUserTask);
-                System.out.println(StaticVariables.ANSWER + userAnswer);
-                correctAnswer = firstNumberForUserTask - secondNumberForUserTask;
-                result = getResult(userAnswer, correctAnswer);
-                if (!result.equals(StaticVariables.CORRECT_RESULT)) {
-                    System.out.println(result);
-                    break;
-                } else {
-                    System.out.println(result);
-                    counterCorrectAnswer++;
-                }
-            }
+            String[] roundsData = generateRoundData();
+            userAnswer = Engine.getUserStringAnswer(StaticVariables.QUESTION + roundsData[0]);
+            System.out.println(StaticVariables.ANSWER + userAnswer);
+            correctAnswer = roundsData[1];
+            Engine.printResult(userAnswer, correctAnswer);
         }
-        if (counterCorrectAnswer >= StaticVariables.TRIES) {
             System.out.println("Congratulations, " + App.getUserName() + "!");
-        }
-    }
-    private static String getResult(int userAnswer, int correctAnswer) {
-        if (isCorrect(correctAnswer, userAnswer)) {
-            return StaticVariables.CORRECT_RESULT;
-        } else {
-            return "'" + userAnswer + "'" + " is wrong answer ;(. Correct answer was '"
-                    + correctAnswer + "'.\nLet's try again, " + App.getUserName() + "!";
-        }
     }
 
-    public static boolean isCorrect(int correctAnswer, int userAnswer) {
-        return correctAnswer == userAnswer;
+    public static String[] generateRoundData() {
+
+        int firstNumberForUserTask = getRandomNumberToTen();
+        int secondNumberForUserTask = getRandomNumberToTen();
+        int randomIndexForMathExample = Engine.generateRandomNumber(OPERATORS.length);
+        String chosenOperator = OPERATORS[randomIndexForMathExample];
+        String question = firstNumberForUserTask + " " + chosenOperator + " " + secondNumberForUserTask;
+        String answer = Integer.toString(getCalculatedResult(chosenOperator, firstNumberForUserTask, secondNumberForUserTask));
+
+        return new String[] {question, answer};
+    }
+
+    public static int getCalculatedResult(String signMathOperation, int firstOperand, int secondOperand) {
+        int calculatedResult;
+        switch (signMathOperation) {
+            case "+" -> {
+                calculatedResult = firstOperand + secondOperand;
+                return calculatedResult;
+            }
+            case "-" -> {
+                calculatedResult = firstOperand - secondOperand;
+                return calculatedResult;
+            }
+            case "*" -> {
+                calculatedResult = firstOperand * secondOperand;
+                return calculatedResult;
+            }
+            default -> {
+                calculatedResult = 0;
+                return calculatedResult;
+            }
+        }
     }
 }

@@ -73,4 +73,7 @@ public class Engine {
             System.exit(0);
         }
     }
+    public static int generateRandomNumber(int highRange) {
+        return (int) (Math.random() * highRange);
+    }
 }
