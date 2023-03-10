@@ -12,39 +12,17 @@ public class EvenGame {
 
     public static void getEvenGame() {
         int counterCorrectAnswer = 0;
-        int presentRandomNumb;
         String userAnswer;
-        String correctAnswer;
         String result;
         for (int i = 0; i < StaticVariables.TRIES; i++) {
-            presentRandomNumb = Engine.getRandomNumberToTen();
-            userAnswer = Engine.getUserStringAnswer(StaticVariables.QUESTION + presentRandomNumb);
+            String[] roundsData = generateRoundData();
+            userAnswer = Engine.getUserStringAnswer(StaticVariables.QUESTION + roundsData[0]);
             System.out.println(StaticVariables.ANSWER + userAnswer);
-            correctAnswer = getCorrectAnswer(presentRandomNumb);
-            result = getResult(userAnswer, correctAnswer);
-            if (!result.equals(StaticVariables.CORRECT_RESULT)) {
-                System.out.println(result);
-                break;
-            } else {
-                System.out.println(result);
-                counterCorrectAnswer++;
-            }
+            String correctAnswer = roundsData[1];
+            Engine.printResult(userAnswer, correctAnswer);
         }
-
-        if (counterCorrectAnswer >= StaticVariables.TRIES) {
             System.out.println("Congratulations, " + App.getUserName() + "!");
-        }
     }
-
-    private static String getResult(String userAnswer, String correctAnswer) {
-        if (isCorrect(correctAnswer, userAnswer)) {
-            return StaticVariables.CORRECT_RESULT;
-        } else {
-            return "'" + userAnswer + "'" + " is wrong answer ;(. Correct answer was '"
-                    + correctAnswer + "'.\nLet's try again, " + App.getUserName() + "!";
-        }
-    }
-
     private static String getCorrectAnswer(int presentRandomNumb) {
         String correctAnswer;
         if (isEven(presentRandomNumb)) {
@@ -61,5 +39,18 @@ public class EvenGame {
 
     public static boolean isEven(int randomNumb) {
         return randomNumb % 2 == 0;
+    }
+
+    private static String[] generateRoundData() {
+        int number = Engine.getRandomNumberToTen();
+
+        String questionNumber = String.valueOf(number);
+
+        String[] roundsData = new String[2];
+        roundsData[0] = questionNumber;
+        roundsData[1] = getCorrectAnswer(number);
+
+
+        return roundsData;
     }
 }
