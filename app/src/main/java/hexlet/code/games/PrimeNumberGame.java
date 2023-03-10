@@ -51,30 +51,14 @@ public class PrimeNumberGame {
     }
 
     public static boolean isPrime(int number) {
-        final int caseForOne = 1;
-        final int caseForThree = 3;
-        final int firstDeterminantCycle = 5;
-        final int secondDeterminantCycle = 6;
-
-        if (number <= caseForOne) {
-            return false;
-        }
-
-        if (number <= caseForThree) {
-            return true;
-        }
-
-        if (number % 2 == 0 || number % caseForThree == 0) {
-            return false;
-        }
-
-        for (int i = firstDeterminantCycle; i * i <= number; i = i + secondDeterminantCycle) {
-            if (number % i == 0 || number % (i + 2) == 0) {
+            int numberForCheck = 1;
+            if (number <= numberForCheck)
                 return false;
-            }
-        }
+            for (int i = 2; i < number; i++)
+                if (number % i == 0)
+                    return false;
 
-        return true;
+            return true;
     }
 
     private static String getCorrectAnswer(int randomNumb) {
