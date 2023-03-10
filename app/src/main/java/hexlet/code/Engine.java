@@ -73,6 +73,15 @@ public class Engine {
             System.exit(0);
         }
     }
+    public static void printResultForProgression(String userAnswer, String correctAnswer) {
+        if (userAnswer.equals(correctAnswer)) {
+            System.out.println("Correct!");
+        } else {
+            System.out.println("'" + userAnswer + "'" + " is wrong answer ;(. Correct answer was '"
+                    + correctAnswer + "'.\nLet's try again, " + App.getUserName() + "!");
+            System.exit(0);
+        }
+    }
     public static int generateRandomNumber(int highRange) {
         return (int) (Math.random() * highRange);
     }
