@@ -15,18 +15,16 @@ public class PrimeNumberGame {
         int counterRightAnswer = 0;
 
         for (int i = 0; i < StaticVariables.TRIES; i++) {
-            int randomNumber = Engine.getRandomNumberToHundred();
-            String userAnswer;
-            String correctAnswer;
-            userAnswer = Engine.getUserStringAnswer(StaticVariables.QUESTION + randomNumber);
+            String[] roundsData = generateRoundData();
+            String userAnswer = Engine.getUserStringAnswer(StaticVariables.QUESTION + roundsData[0]);
             System.out.println(StaticVariables.ANSWER + userAnswer);
-            correctAnswer = getCorrectAnswer(randomNumber);
-            if ((userAnswer.equalsIgnoreCase("yes") && isPrime(randomNumber))
-                    || (userAnswer.equalsIgnoreCase("no") && !isPrime(randomNumber))) {
+            String correctAnswer = roundsData[1];
+            if ((userAnswer.equalsIgnoreCase("yes") && userAnswer.equals(correctAnswer))
+                    || (userAnswer.equalsIgnoreCase("no") && userAnswer.equals(correctAnswer))) {
                 System.out.println("Correct!");
                 counterRightAnswer++;
             } else {
-                if (userAnswer.equalsIgnoreCase("yes") && !isPrime(randomNumber)) {
+                if (userAnswer.equalsIgnoreCase("yes") && !userAnswer.equals(correctAnswer)) {
                     correctAnswer = "no";
                 } else {
                     correctAnswer = "yes";
@@ -39,6 +37,18 @@ public class PrimeNumberGame {
         if (counterRightAnswer >= StaticVariables.TRIES) {
             System.out.println("Congratulations, " + App.getUserName() + "!");
         }
+    }
+    private static String[] generateRoundData() {
+        int number = Engine.getRandomNumberToHundred();
+
+        String questionNumber = String.valueOf(number);
+
+        String[] roundsData = new String[2];
+        roundsData[0] = questionNumber;
+        roundsData[1] = getCorrectAnswer(number);
+
+
+        return roundsData;
     }
 
     public static boolean isPrime(int number) {
