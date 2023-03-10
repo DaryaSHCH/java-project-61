@@ -52,12 +52,14 @@ public class PrimeNumberGame {
 
     public static boolean isPrime(int number) {
             int numberForCheck = 1;
-            if (number <= numberForCheck)
+            if (number <= numberForCheck) {
                 return false;
-            for (int i = 2; i < number; i++)
-                if (number % i == 0)
+            }
+            for (int i = 2; i < number; i++) {
+                if (number % i == 0) {
                     return false;
-
+                }
+            }
             return true;
     }
 
