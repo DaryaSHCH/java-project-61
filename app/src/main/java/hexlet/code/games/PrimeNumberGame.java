@@ -19,12 +19,11 @@ public class PrimeNumberGame {
             String userAnswer = Engine.getUserStringAnswer(StaticVariables.QUESTION + roundsData[0]);
             System.out.println(StaticVariables.ANSWER + userAnswer);
             String correctAnswer = roundsData[1];
-            if ((userAnswer.equalsIgnoreCase("yes") && userAnswer.equals(correctAnswer))
-                    || (userAnswer.equalsIgnoreCase("no") && userAnswer.equals(correctAnswer))) {
+            if (userAnswer.equals(correctAnswer)) {
                 System.out.println("Correct!");
                 counterRightAnswer++;
             } else {
-                if (userAnswer.equalsIgnoreCase("yes") && !userAnswer.equals(correctAnswer)) {
+                if (userAnswer.equals("yes")) {
                     correctAnswer = "no";
                 } else {
                     correctAnswer = "yes";
