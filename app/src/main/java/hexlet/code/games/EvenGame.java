@@ -22,7 +22,7 @@ public class EvenGame {
             System.out.println(StaticVariables.ANSWER + userAnswer);
             correctAnswer = getCorrectAnswer(presentRandomNumb);
             result = getResult(userAnswer, correctAnswer);
-            if (!result.equals(StaticVariables.CORRECT_RESULT)){
+            if (!result.equals(StaticVariables.CORRECT_RESULT)) {
                 System.out.println(result);
                 break;
             } else {

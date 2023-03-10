@@ -36,8 +36,8 @@ public class CalculatorGame {
                         + secondNumberForUserTask);
                 System.out.println(StaticVariables.ANSWER + userAnswer);
                 correctAnswer = firstNumberForUserTask + secondNumberForUserTask;
-                result = getResult(userAnswer,correctAnswer);
-                if (!result.equals(StaticVariables.CORRECT_RESULT)){
+                result = getResult(userAnswer, correctAnswer);
+                if (!result.equals(StaticVariables.CORRECT_RESULT)) {
                     System.out.println(result);
                     break;
                 } else {
@@ -53,7 +53,7 @@ public class CalculatorGame {
                 System.out.println(StaticVariables.ANSWER + userAnswer);
                 correctAnswer = firstNumberForUserTask * secondNumberForUserTask;
                 result = getResult(userAnswer, correctAnswer);
-                if (!result.equals(StaticVariables.CORRECT_RESULT)){
+                if (!result.equals(StaticVariables.CORRECT_RESULT)) {
                     System.out.println(result);
                     break;
                 } else {
@@ -67,8 +67,8 @@ public class CalculatorGame {
                         + secondNumberForUserTask);
                 System.out.println(StaticVariables.ANSWER + userAnswer);
                 correctAnswer = firstNumberForUserTask - secondNumberForUserTask;
-                result = getResult(userAnswer,correctAnswer);
-                if (!result.equals(StaticVariables.CORRECT_RESULT)){
+                result = getResult(userAnswer, correctAnswer);
+                if (!result.equals(StaticVariables.CORRECT_RESULT)) {
                     System.out.println(result);
                     break;
                 } else {
