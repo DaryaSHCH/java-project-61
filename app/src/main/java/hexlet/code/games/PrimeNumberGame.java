@@ -11,24 +11,12 @@ public class PrimeNumberGame {
     }
 
     public static void getPrimeNumberGame() {
-
         for (int i = 0; i < StaticVariables.TRIES; i++) {
             String[] roundsData = generateRoundData();
             String userAnswer = Engine.getUserStringAnswer(StaticVariables.QUESTION + roundsData[0]);
             System.out.println(StaticVariables.ANSWER + userAnswer);
             String correctAnswer = roundsData[1];
-            if (userAnswer.equals(correctAnswer)) {
-                System.out.println("Correct!");
-            } else {
-                if (userAnswer.equals("yes")) {
-                    correctAnswer = "no";
-                } else {
-                    correctAnswer = "yes";
-                }
-                System.out.println("'" + userAnswer + "'" + " is wrong answer ;(. Correct answer was '"
-                        + correctAnswer + "'.\nLet's try again, " + App.getUserName() + "!");
-                break;
-            }
+            Engine.printResult(userAnswer, correctAnswer);
         }
             System.out.println("Congratulations, " + App.getUserName() + "!");
     }
