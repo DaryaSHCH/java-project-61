@@ -12,8 +12,6 @@ public class PrimeNumberGame {
 
     public static void getPrimeNumberGame() {
 
-        int counterRightAnswer = 0;
-
         for (int i = 0; i < StaticVariables.TRIES; i++) {
             String[] roundsData = generateRoundData();
             String userAnswer = Engine.getUserStringAnswer(StaticVariables.QUESTION + roundsData[0]);
@@ -21,7 +19,6 @@ public class PrimeNumberGame {
             String correctAnswer = roundsData[1];
             if (userAnswer.equals(correctAnswer)) {
                 System.out.println("Correct!");
-                counterRightAnswer++;
             } else {
                 if (userAnswer.equals("yes")) {
                     correctAnswer = "no";
@@ -33,9 +30,7 @@ public class PrimeNumberGame {
                 break;
             }
         }
-        if (counterRightAnswer >= StaticVariables.TRIES) {
             System.out.println("Congratulations, " + App.getUserName() + "!");
-        }
     }
     private static String[] generateRoundData() {
         int number = Engine.getRandomNumberToHundred();
