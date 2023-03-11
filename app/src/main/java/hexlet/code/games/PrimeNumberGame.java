@@ -22,13 +22,14 @@ public final class PrimeNumberGame extends Game {
         return new GameTryResult(correctAnswer, userAnswer);
     }
     private static String[] generateRoundData() {
-        String[] roundsData = new String[2];
         int number = Engine.getRandomNumber(StaticVariables.MIN_VALUE_FOR_RANDOM,
                 StaticVariables.MAX_VALUE_FOR_RANDOM_TO_HUNDRED);
 
         String questionNumber = String.valueOf(Engine.getRandomNumber(
                 StaticVariables.MIN_VALUE_FOR_RANDOM,
                 StaticVariables.MAX_VALUE_FOR_RANDOM_TO_HUNDRED));
+
+        String[] roundsData = new String[2];
         roundsData[0] = questionNumber;
         roundsData[1]  = isPrime(number) ? "yes" : "no";
 
