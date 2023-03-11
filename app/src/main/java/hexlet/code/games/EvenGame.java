@@ -33,7 +33,7 @@ public final class EvenGame extends Game {
         String questionNumber = String.valueOf(number);
         String[] roundsData = new String[2];
         roundsData[0] = questionNumber;
-        roundsData[1] = isEven(number) ? "yes" : "no";;
+        roundsData[1] = isEven(number) ? "yes" : "no";
         return roundsData;
     }
 
