@@ -25,9 +25,7 @@ public final class PrimeNumberGame extends Game {
         int number = Engine.getRandomNumber(StaticVariables.MIN_VALUE_FOR_RANDOM,
                 StaticVariables.MAX_VALUE_FOR_RANDOM_TO_HUNDRED);
 
-        String questionNumber = String.valueOf(Engine.getRandomNumber(
-                StaticVariables.MIN_VALUE_FOR_RANDOM,
-                StaticVariables.MAX_VALUE_FOR_RANDOM_TO_HUNDRED));
+        String questionNumber = String.valueOf(number);
 
         String[] roundsData = new String[2];
         roundsData[0] = questionNumber;
