@@ -46,13 +46,13 @@ public abstract class Game {
         }
     }
 
-    protected final static class GameTryResult {
+    protected static final class GameTryResult {
         private final String correctAnswer;
         private final String userAnswer;
 
-        GameTryResult(String correctAnswer, String userAnswer) {
-            this.correctAnswer = correctAnswer;
-            this.userAnswer = userAnswer;
+        GameTryResult(String expectedAnswer, String actualAnswer) {
+            this.correctAnswer = expectedAnswer;
+            this.userAnswer = actualAnswer;
         }
 
         public String getCorrectAnswer() {
