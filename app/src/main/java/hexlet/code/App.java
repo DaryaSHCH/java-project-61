@@ -1,10 +1,6 @@
 package hexlet.code;
 
-import hexlet.code.games.EvenGame;
-import hexlet.code.games.CalculatorGame;
-import hexlet.code.games.GreatestCommonDivisorGame;
-import hexlet.code.games.ArithmeticProgression;
-import hexlet.code.games.PrimeNumberGame;
+import hexlet.code.games.*;
 
 import static hexlet.code.Cli.greetUser;
 import static hexlet.code.Engine.closeSCAN;
@@ -24,26 +20,27 @@ public class App {
         } else if (numberUserChoice == StaticVariables.USER_CHOICE_FOR_START_EVEN_GAME) {
             System.out.println("Your choice: " + StaticVariables.USER_CHOICE_FOR_START_EVEN_GAME);
             greetUser();
-            EvenGame.start();
+            new EvenGame(App.getUserName()).start();
         } else if (numberUserChoice == StaticVariables.USER_CHOICE_FOR_CALCULATOR) {
             System.out.println("Your choice: " + StaticVariables.USER_CHOICE_FOR_CALCULATOR);
             greetUser();
-            CalculatorGame.start();
+            new CalculatorGame(App.getUserName()).start();
         } else if (numberUserChoice == StaticVariables.USER_CHOICE_FOR_GCD) {
             System.out.println("Your choice: " + StaticVariables.USER_CHOICE_FOR_GCD);
             greetUser();
-            GreatestCommonDivisorGame.start();
+            new GreatestCommonDivisorGame(App.getUserName()).start();
         } else if (numberUserChoice == StaticVariables.USER_CHOICE_FOR_PROGRESSION) {
             System.out.println("Your choice: " + StaticVariables.USER_CHOICE_FOR_PROGRESSION);
             greetUser();
-            ArithmeticProgression.start();
+            new ArithmeticProgression(App.getUserName()).start();
         } else if (numberUserChoice == StaticVariables.USER_CHOICE_FOR_PRIME) {
             System.out.println("Your choice: " + StaticVariables.USER_CHOICE_FOR_PRIME);
             greetUser();
-            PrimeNumberGame.start();
+            new PrimeNumberGame(App.getUserName()).start();
         } else {
             System.out.println("Your choice: " + StaticVariables.USER_CHOICE_FOR_EXIT + "\nGoodbye");
         }
+
         closeSCAN();
     }
     public static void setUserName(String name) {
