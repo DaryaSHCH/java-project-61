@@ -27,4 +27,8 @@ public class StaticVariables {
     public static final String CORRECT_RESULT = "Correct!";
 
     public static final int TRIES = 3;
+    public static final int MIN_VALUE_FOR_RANDOM = 1;
+    public static final int MAX_VALUE_FOR_RANDOM_TO_TEN = 10;
+
+    public static final int MAX_VALUE_FOR_RANDOM_TO_HUNDRED = 100;
 }

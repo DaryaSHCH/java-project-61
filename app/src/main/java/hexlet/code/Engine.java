@@ -25,16 +25,7 @@ public class Engine {
         return userAnswer;
     }
 
-    public static int getRandomNumberToTen() {
-        final int min = 1;
-        final int max = 10;
-        Random random = new Random();
-        return random.nextInt(max - min) + min;
-    }
-
-    public static int getRandomNumberToHundred() {
-        final int min = 1;
-        final int max = 100;
+    public static int getRandomNumber(int min, int max) {
         Random random = new Random();
         return random.nextInt(max - min) + min;
     }

@@ -4,7 +4,7 @@ import hexlet.code.App;
 import hexlet.code.Engine;
 import hexlet.code.StaticVariables;
 
-import static hexlet.code.Engine.getRandomNumberToTen;
+import static hexlet.code.Engine.getRandomNumber;
 
 public class CalculatorGame {
 
@@ -33,8 +33,8 @@ public class CalculatorGame {
 
     public static String[] generateRoundData() {
 
-        int firstNumberForUserTask = getRandomNumberToTen();
-        int secondNumberForUserTask = getRandomNumberToTen();
+        int firstNumberForUserTask = getRandomNumber(StaticVariables.MIN_VALUE_FOR_RANDOM, StaticVariables.MAX_VALUE_FOR_RANDOM_TO_HUNDRED);
+        int secondNumberForUserTask = getRandomNumber(StaticVariables.MIN_VALUE_FOR_RANDOM, StaticVariables.MAX_VALUE_FOR_RANDOM_TO_HUNDRED);
         int randomIndexForMathExample = Engine.generateRandomNumber(OPERATORS.length);
         String chosenOperator = OPERATORS[randomIndexForMathExample];
         String question = firstNumberForUserTask + " " + chosenOperator + " " + secondNumberForUserTask;

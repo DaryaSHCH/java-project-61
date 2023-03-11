@@ -16,8 +16,8 @@ public class GreatestCommonDivisorGame {
         int counterCorrectAnswer = 0;
         int correctAnswer;
         for (int i = 0; i < StaticVariables.TRIES; i++) {
-            int firstNumberForUserTask = Engine.getRandomNumberToHundred();
-            int secondNumberForUserTask = Engine.getRandomNumberToHundred();
+            int firstNumberForUserTask = Engine.getRandomNumber(StaticVariables.MIN_VALUE_FOR_RANDOM,StaticVariables.MAX_VALUE_FOR_RANDOM_TO_HUNDRED);
+            int secondNumberForUserTask = Engine.getRandomNumber(StaticVariables.MIN_VALUE_FOR_RANDOM,StaticVariables.MAX_VALUE_FOR_RANDOM_TO_HUNDRED);
             int userAnswer;
             System.out.println(QUESTION  + firstNumberForUserTask + " " + secondNumberForUserTask);
             userAnswer = Engine.getUserIntegerAnswer(QUESTION + firstNumberForUserTask + " "

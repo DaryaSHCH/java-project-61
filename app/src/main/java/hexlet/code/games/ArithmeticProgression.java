@@ -20,7 +20,7 @@ public class ArithmeticProgression {
 
         for (int i = 0; i < StaticVariables.TRIES; i++) {
             String[] roundsData = generateRoundData();
-            int randomNumbForInterval = Engine.getRandomNumberToTen();
+            int randomNumbForInterval = Engine.getRandomNumber(StaticVariables.MIN_VALUE_FOR_RANDOM, StaticVariables.MAX_VALUE_FOR_RANDOM_TO_TEN);
             String userAnswer = Engine.getUserStringAnswer(StaticVariables.QUESTION + roundsData[0]);
             System.out.println(StaticVariables.ANSWER + userAnswer);
             String correctAnswer = roundsData[1];
@@ -32,7 +32,7 @@ public class ArithmeticProgression {
     public static int[] getProgression(int intervalBetweenNumbers) {
         final int progressionIntervalPattern = 3;
         int[] progression = new int[PROGRESSION_LENGTH];
-        int firstElement = Engine.getRandomNumberToHundred();
+        int firstElement = Engine.getRandomNumber(StaticVariables.MIN_VALUE_FOR_RANDOM, StaticVariables.MAX_VALUE_FOR_RANDOM_TO_HUNDRED);
         progression[0] = firstElement;
 
         for (int i = 0; i < progression.length; i++) {

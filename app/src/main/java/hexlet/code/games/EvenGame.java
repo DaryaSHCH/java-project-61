@@ -5,6 +5,7 @@ import hexlet.code.Engine;
 import hexlet.code.StaticVariables;
 
 public class EvenGame {
+
     public static void start() {
         System.out.println("Answer 'yes' if the number is even, otherwise answer 'no'.");
         getEvenGame();
@@ -42,7 +43,7 @@ public class EvenGame {
     }
 
     private static String[] generateRoundData() {
-        int number = Engine.getRandomNumberToTen();
+        int number = Engine.getRandomNumber(StaticVariables.MIN_VALUE_FOR_RANDOM, StaticVariables.MAX_VALUE_FOR_RANDOM_TO_TEN);
         String questionNumber = String.valueOf(number);
         String[] roundsData = new String[2];
         roundsData[0] = questionNumber;
