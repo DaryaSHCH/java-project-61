@@ -19,6 +19,8 @@ public abstract class Game {
     public void start() {
         System.out.println(getStartMessage());
 
+        boolean hasWrongAnswer = false;
+
         for (int i = 0; i < StaticVariables.TRIES; i++) {
             GameTryResult tryResult = processUserTry();
 
@@ -32,8 +34,15 @@ public abstract class Game {
                         + " is wrong answer ;(. Correct answer was '"
                         + tryResult.getCorrectAnswer()
                         + "'.\nLet's try again, " + userName + "!");
+
+                hasWrongAnswer = true;
+
                 break;
             }
+        }
+
+        if (!hasWrongAnswer) {
+            System.out.println("Congratulations, " + userName + "!");
         }
     }
 
