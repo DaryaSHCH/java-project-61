@@ -33,8 +33,10 @@ public class CalculatorGame {
 
     public static String[] generateRoundData() {
 
-        int firstNumberForUserTask = getRandomNumber(StaticVariables.MIN_VALUE_FOR_RANDOM, StaticVariables.MAX_VALUE_FOR_RANDOM_TO_HUNDRED);
-        int secondNumberForUserTask = getRandomNumber(StaticVariables.MIN_VALUE_FOR_RANDOM, StaticVariables.MAX_VALUE_FOR_RANDOM_TO_HUNDRED);
+        int firstNumberForUserTask = getRandomNumber(StaticVariables.MIN_VALUE_FOR_RANDOM,
+                StaticVariables.MAX_VALUE_FOR_RANDOM_TO_HUNDRED);
+        int secondNumberForUserTask = getRandomNumber(StaticVariables.MIN_VALUE_FOR_RANDOM,
+                StaticVariables.MAX_VALUE_FOR_RANDOM_TO_HUNDRED);
         int randomIndexForMathExample = Engine.generateRandomNumber(OPERATORS.length);
         String chosenOperator = OPERATORS[randomIndexForMathExample];
         String question = firstNumberForUserTask + " " + chosenOperator + " " + secondNumberForUserTask;
