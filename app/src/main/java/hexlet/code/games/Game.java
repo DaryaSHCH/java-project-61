@@ -6,17 +6,17 @@ import static hexlet.code.StaticVariables.CORRECT_RESULT;
 
 public abstract class Game {
 
-    private final String userName;
+    private final String currentUser;
 
     protected Game(final String userName) {
-        this.userName = userName;
+        this.currentUser = userName;
     }
 
     protected abstract String getStartMessage();
 
     protected abstract GameTryResult processUserTry();
 
-    public void start() {
+    public final void start() {
         System.out.println(getStartMessage());
 
         boolean hasWrongAnswer = false;
@@ -33,7 +33,7 @@ public abstract class Game {
                 System.out.println("'" + tryResult.getUserAnswer() + "'"
                         + " is wrong answer ;(. Correct answer was '"
                         + tryResult.getCorrectAnswer()
-                        + "'.\nLet's try again, " + userName + "!");
+                        + "'.\nLet's try again, " + currentUser + "!");
 
                 hasWrongAnswer = true;
 
@@ -42,15 +42,15 @@ public abstract class Game {
         }
 
         if (!hasWrongAnswer) {
-            System.out.println("Congratulations, " + userName + "!");
+            System.out.println("Congratulations, " + currentUser + "!");
         }
     }
 
-    protected static class GameTryResult {
+    protected final static class GameTryResult {
         private final String correctAnswer;
         private final String userAnswer;
 
-        protected GameTryResult(String correctAnswer, String userAnswer) {
+        GameTryResult(String correctAnswer, String userAnswer) {
             this.correctAnswer = correctAnswer;
             this.userAnswer = userAnswer;
         }

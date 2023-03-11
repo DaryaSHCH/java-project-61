@@ -3,7 +3,7 @@ package hexlet.code.games;
 import hexlet.code.Engine;
 import hexlet.code.StaticVariables;
 
-public class PrimeNumberGame extends Game {
+public final class PrimeNumberGame extends Game {
     public PrimeNumberGame(String userName) {
         super(userName);
     }

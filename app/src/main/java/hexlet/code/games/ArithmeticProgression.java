@@ -3,13 +3,17 @@ package hexlet.code.games;
 import hexlet.code.Engine;
 import hexlet.code.StaticVariables;
 
-public class ArithmeticProgression extends Game {
+public final class ArithmeticProgression extends Game {
 
     private static final int INTERVAL_FIRST_PROGRESSION = 2;
     private static final int INTERVAL_SECOND_PROGRESSION = 3;
     private static final int INTERVAL_THIRD_PROGRESSION = 5;
 
-    private static final int[] INTERVALS = {INTERVAL_FIRST_PROGRESSION, INTERVAL_SECOND_PROGRESSION, INTERVAL_THIRD_PROGRESSION};
+    private static final int[] INTERVALS = {
+            INTERVAL_FIRST_PROGRESSION,
+            INTERVAL_SECOND_PROGRESSION,
+            INTERVAL_THIRD_PROGRESSION
+    };
     private static final int PROGRESSION_LENGTH = 10;
 
     public ArithmeticProgression(String userName) {
@@ -25,7 +29,9 @@ public class ArithmeticProgression extends Game {
     protected GameTryResult processUserTry() {
         int intervalIndex = Engine.getRandomNumber(0, INTERVALS.length - 1);
         int interval = INTERVALS[intervalIndex];
-        int startValue = Engine.getRandomNumber(1, 100);
+        int startValue = Engine.getRandomNumber(
+                StaticVariables.MIN_VALUE_FOR_RANDOM,
+                StaticVariables.MAX_VALUE_FOR_RANDOM_TO_HUNDRED);
 
         int[] sequence = new int[PROGRESSION_LENGTH];
         sequence[0] = startValue;

@@ -3,7 +3,7 @@ package hexlet.code.games;
 import hexlet.code.Engine;
 import hexlet.code.StaticVariables;
 
-public class GreatestCommonDivisorGame extends Game {
+public final class GreatestCommonDivisorGame extends Game {
 
     private static final String QUESTION = "Question: ";
 

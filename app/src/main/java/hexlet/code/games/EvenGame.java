@@ -3,7 +3,7 @@ package hexlet.code.games;
 import hexlet.code.Engine;
 import hexlet.code.StaticVariables;
 
-public class EvenGame extends Game {
+public final class EvenGame extends Game {
     public EvenGame(final String userName) {
         super(userName);
     }

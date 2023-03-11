@@ -5,7 +5,7 @@ import hexlet.code.StaticVariables;
 
 import static hexlet.code.Engine.getRandomNumber;
 
-public class CalculatorGame extends Game {
+public final class CalculatorGame extends Game {
     static final String[] OPERATORS = {"+", "-", "*"};
     public CalculatorGame(String userName) {
         super(userName);
