@@ -21,7 +21,8 @@ public class PrimeNumberGame {
             System.out.println("Congratulations, " + App.getUserName() + "!");
     }
     private static String[] generateRoundData() {
-        int number = Engine.getRandomNumber(StaticVariables.MIN_VALUE_FOR_RANDOM, StaticVariables.MAX_VALUE_FOR_RANDOM_TO_HUNDRED);
+        int number = Engine.getRandomNumber(StaticVariables.MIN_VALUE_FOR_RANDOM,
+                StaticVariables.MAX_VALUE_FOR_RANDOM_TO_HUNDRED);
 
         String questionNumber = String.valueOf(number);
 
