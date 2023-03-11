@@ -43,7 +43,8 @@ public class EvenGame {
     }
 
     private static String[] generateRoundData() {
-        int number = Engine.getRandomNumber(StaticVariables.MIN_VALUE_FOR_RANDOM, StaticVariables.MAX_VALUE_FOR_RANDOM_TO_TEN);
+        int number = Engine.getRandomNumber(StaticVariables.MIN_VALUE_FOR_RANDOM,
+                StaticVariables.MAX_VALUE_FOR_RANDOM_TO_TEN);
         String questionNumber = String.valueOf(number);
         String[] roundsData = new String[2];
         roundsData[0] = questionNumber;
