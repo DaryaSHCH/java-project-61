@@ -33,18 +33,8 @@ public final class EvenGame extends Game {
         String questionNumber = String.valueOf(number);
         String[] roundsData = new String[2];
         roundsData[0] = questionNumber;
-        roundsData[1] = getCorrectAnswer(number);
+        roundsData[1] = isEven(number) ? "yes" : "no";;
         return roundsData;
-    }
-
-    private static String getCorrectAnswer(int presentRandomNumb) {
-        String correctAnswer;
-        if (isEven(presentRandomNumb)) {
-            correctAnswer = "yes";
-        } else {
-            correctAnswer = "no";
-        }
-        return correctAnswer;
     }
 
     public static boolean isEven(int randomNumb) {
