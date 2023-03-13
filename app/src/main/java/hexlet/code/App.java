@@ -17,12 +17,30 @@ public class App {
 
         if (numberUserChoice == StaticVariables.USER_CHOICE_FOR_GREETING) {
             greetUser();
+        } else if (numberUserChoice == StaticVariables.USER_CHOICE_FOR_START_EVEN_GAME) {
+            System.out.println("Your choice: " + StaticVariables.USER_CHOICE_FOR_START_EVEN_GAME);
+            greetUser();
+            new EvenGame(App.getUserName()).start();
+        } else if (numberUserChoice == StaticVariables.USER_CHOICE_FOR_CALCULATOR) {
+            System.out.println("Your choice: " + StaticVariables.USER_CHOICE_FOR_CALCULATOR);
+            greetUser();
+            new CalculatorGame(App.getUserName()).start();
+        } else if (numberUserChoice == StaticVariables.USER_CHOICE_FOR_GCD) {
+            System.out.println("Your choice: " + StaticVariables.USER_CHOICE_FOR_GCD);
+            greetUser();
+            new GreatestCommonDivisorGame(App.getUserName()).start();
+        } else if (numberUserChoice == StaticVariables.USER_CHOICE_FOR_PROGRESSION) {
+            System.out.println("Your choice: " + StaticVariables.USER_CHOICE_FOR_PROGRESSION);
+            greetUser();
+            new ArithmeticProgression(App.getUserName()).start();
+        } else if (numberUserChoice == StaticVariables.USER_CHOICE_FOR_PRIME) {
+            System.out.println("Your choice: " + StaticVariables.USER_CHOICE_FOR_PRIME);
+            greetUser();
+            new PrimeNumberGame(App.getUserName()).start();
         } else {
             System.out.println("Your choice: " + StaticVariables.USER_CHOICE_FOR_EXIT + "\nGoodbye");
         }
-        System.out.println("Your choice: " + numberUserChoice);
-        Game game = getGameByUserChoice(numberUserChoice);
-        game.start();
+
         closeSCAN();
     }
     public static void setUserName(String name) {
@@ -30,29 +48,5 @@ public class App {
     }
     public static String getUserName() {
         return userName;
-    }
-
-    public static Game getGameByUserChoice(int userChoice) {
-        switch (userChoice) {
-            case  StaticVariables.USER_CHOICE_FOR_PRIME ->  {
-                return new PrimeNumberGame(App.getUserName());
-            }
-            case StaticVariables.USER_CHOICE_FOR_START_EVEN_GAME -> {
-                return new EvenGame(App.getUserName());
-            }
-            case StaticVariables.USER_CHOICE_FOR_CALCULATOR -> {
-                return new CalculatorGame(App.getUserName());
-            }
-            case StaticVariables.USER_CHOICE_FOR_GCD -> {
-                return new GreatestCommonDivisorGame(App.getUserName());
-            }
-            case StaticVariables.USER_CHOICE_FOR_PROGRESSION -> {
-                return new ArithmeticProgression(App.getUserName());
-            }
-            default -> {
-                return null;
-            }
-        }
-
     }
 }
