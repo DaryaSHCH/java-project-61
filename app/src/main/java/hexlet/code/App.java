@@ -1,6 +1,10 @@
 package hexlet.code;
 
-import hexlet.code.games.*;
+import hexlet.code.games.CalculatorGame;
+import hexlet.code.games.EvenGame;
+import hexlet.code.games.GreatestCommonDivisorGame;
+import hexlet.code.games.PrimeNumberGame;
+import hexlet.code.games.ArithmeticProgression;
 
 import static hexlet.code.Cli.greetUser;
 import static hexlet.code.Engine.closeSCAN;
