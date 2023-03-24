@@ -30,7 +30,7 @@ public final class PrimeNumberGame {
         return arrayString;
     }
     private static String[] generateRoundsCorrectAnswer(int[] randomNumbersForEven) {
-        String[] correctAnswers  = new String[3];
+        String[] correctAnswers  = new String[StaticVariables.TRIES];
         for (int i = 0; i < correctAnswers.length; i++) {
             correctAnswers[i] = getCorrectAnswerForPrime(randomNumbersForEven[i]);
         }

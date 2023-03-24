@@ -12,7 +12,7 @@ public final class EvenGame  {
         Engine.startGame(mainQuestion, randomStringNumbersForEven, correctAnswers);
     }
     private static int[] getQuestions() {
-        int[] roundsData = new int[3];
+        int[] roundsData = new int[StaticVariables.TRIES];
         for (int i = 0; i < roundsData.length; i++) {
             int randomNumberForEven = Engine.getRandomNumber(
                     StaticVariables.MIN_VALUE_FOR_RANDOM,
@@ -22,7 +22,7 @@ public final class EvenGame  {
         return roundsData;
     }
     private static String[] getCorrectAnswers(int[] randomNumbersForEven) {
-        String[] correctAnswers  = new String[3];
+        String[] correctAnswers  = new String[StaticVariables.TRIES];
         for (int i = 0; i < correctAnswers.length; i++) {
             correctAnswers[i] = getCorrectAnswerForEven(randomNumbersForEven[i]);
         }
