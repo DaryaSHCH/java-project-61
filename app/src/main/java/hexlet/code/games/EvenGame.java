@@ -5,7 +5,7 @@ import hexlet.code.StaticVariables;
 
 public final class EvenGame  {
     public static void startEvenGame() {
-        String mainQuestion = "Answer 'yes' if number even, otherwise answer 'no'.";
+        String mainQuestion = "Answer 'yes' if the number is even, otherwise answer 'no'.";
         int[] randNumbersForEven = getQuestions();
         String[] randomStringNumbersForEven = getStringArrayFromInteger(randNumbersForEven);
         String[] correctAnswers = getCorrectAnswers(randNumbersForEven);
