@@ -4,8 +4,8 @@ import hexlet.code.Engine;
 import hexlet.code.StaticVariables;
 
 public final class ArithmeticProgression {
-    private static final String[] progressionsForTask = new String[StaticVariables.TRIES];
-    private static final String[] correctAnswersForProgressions = new String[StaticVariables.TRIES];
+    private static final String[] PROGRESSIONS_FOR_TASK = new String[StaticVariables.TRIES];
+    private static final String[] CORRECT_ANSWERS_FOR_PROGRESSIONS = new String[StaticVariables.TRIES];
     private static final int INTERVAL_FIRST_PROGRESSION = 2;
     private static final int INTERVAL_SECOND_PROGRESSION = 3;
     private static final int INTERVAL_THIRD_PROGRESSION = 5;
@@ -27,10 +27,10 @@ public final class ArithmeticProgression {
                     StaticVariables.MAX_VALUE_FOR_RANDOM_TO_HUNDRED);
             int[] fullProgression = getIntegerFullProgression(intervalIndex, startValue);
             int indexMissingElement = Engine.getRandomNumber(0, fullProgression.length - 1);
-            correctAnswersForProgressions[i] = String.valueOf(fullProgression[indexMissingElement]);
-            progressionsForTask[i] = getProgressionWithEmptyIndex(fullProgression, indexMissingElement);
+            CORRECT_ANSWERS_FOR_PROGRESSIONS[i] = String.valueOf(fullProgression[indexMissingElement]);
+            PROGRESSIONS_FOR_TASK[i] = getProgressionWithEmptyIndex(fullProgression, indexMissingElement);
         }
-        Engine.startGame(mainQuestion, progressionsForTask, correctAnswersForProgressions);
+        Engine.startGame(mainQuestion, PROGRESSIONS_FOR_TASK, CORRECT_ANSWERS_FOR_PROGRESSIONS);
 
 
     }

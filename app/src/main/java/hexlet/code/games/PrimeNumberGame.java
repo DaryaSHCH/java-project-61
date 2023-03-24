@@ -13,7 +13,7 @@ public final class PrimeNumberGame {
         Engine.startGame(mainQuestion, randStrNumbersForPrime, correctAnswers);
     }
     private static int[] generateRoundsQuestion() {
-        int[] roundsData = new int[3];
+        int[] roundsData = new int[StaticVariables.TRIES];
         for (int i = 0; i < roundsData.length; i++) {
             int randomNumberForPrime = Engine.getRandomNumber(
                     StaticVariables.MIN_VALUE_FOR_RANDOM,
