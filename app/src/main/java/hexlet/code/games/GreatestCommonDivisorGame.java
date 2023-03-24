@@ -3,38 +3,35 @@ package hexlet.code.games;
 import hexlet.code.Engine;
 import hexlet.code.StaticVariables;
 
-public final class GreatestCommonDivisorGame extends Game {
+public final class GreatestCommonDivisorGame {
+    static String[] PAIRS = new String[StaticVariables.TRIES];
+    static String[] CORRECT_ANSWERS_FOR_GCD = new String[StaticVariables.TRIES];
+    public static void startGCD() {
+        String mainQuestion = "Find the greatest common divisor of given numbers.";
 
-    private static final String QUESTION = "Question: ";
-
-    public GreatestCommonDivisorGame(String userName) {
-        super(userName);
+        int[] firstNumbers = getRandomNumbers();
+        int[] secondNumbers = getRandomNumbers();
+        fillQuestionsAndAnswers(firstNumbers, secondNumbers);
+        Engine.startGame(mainQuestion, PAIRS, CORRECT_ANSWERS_FOR_GCD);
+    }
+    private static int[] getRandomNumbers() {
+        int[] numbers = new int[StaticVariables.TRIES];
+        for (int i = 0; i < numbers.length; i++) {
+            int randomNumber= Engine.getRandomNumber(
+                    StaticVariables.MIN_VALUE_FOR_RANDOM,
+                    StaticVariables.MAX_VALUE_FOR_RANDOM_TO_HUNDRED);
+            numbers[i] = randomNumber;
+        }
+        return numbers;
     }
 
-    @Override
-    protected String getStartMessage() {
-        return "Find the greatest common divisor of given numbers.";
+    public static void fillQuestionsAndAnswers(int[] firstNumbers, int[] secondNumbers) {
+        for (int i = 0; i < PAIRS.length; i++) {
+            PAIRS[i] = firstNumbers[i] + " " + secondNumbers[i];
+            CORRECT_ANSWERS_FOR_GCD[i] = Integer.toString(getGCD(firstNumbers[i],
+                    secondNumbers[i]));
+        }
     }
-
-    @Override
-    protected GameTryResult processUserTry() {
-        int firstNumberForUserTask = Engine.getRandomNumber(StaticVariables.MIN_VALUE_FOR_RANDOM,
-                StaticVariables.MAX_VALUE_FOR_RANDOM_TO_HUNDRED);
-        int secondNumberForUserTask = Engine.getRandomNumber(StaticVariables.MIN_VALUE_FOR_RANDOM,
-                StaticVariables.MAX_VALUE_FOR_RANDOM_TO_HUNDRED);
-
-        System.out.println(QUESTION  + firstNumberForUserTask + " " + secondNumberForUserTask);
-
-        int userAnswer = Engine.getUserIntegerAnswer(QUESTION + firstNumberForUserTask + " "
-                + secondNumberForUserTask);
-        int correctAnswer = getGCD(firstNumberForUserTask, secondNumberForUserTask);
-
-        return new GameTryResult(
-                String.valueOf(correctAnswer),
-                String.valueOf(userAnswer)
-        );
-    }
-
     public static int getGCD(int firstNumber, int secondNumber) {
         if (firstNumber == 0) {
             return secondNumber;

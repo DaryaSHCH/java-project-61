@@ -5,6 +5,28 @@ import java.util.Scanner;
 
 public class Engine {
     private static Scanner scan = new Scanner(System.in);
+    public static void startGame(String mainGameQuestion, String[] questions, String[] correctAnswers) {
+        String userName = Cli.greetUserAndGetName();
+        System.out.println(mainGameQuestion);
+        boolean hasWrongAnswer = false;
+        for (int i = 0; i < StaticVariables.TRIES; i++) {
+            String userAnswer = Engine.getUserStringInput(StaticVariables.QUESTION + questions[i] + "\nYour answer: ");
+            if (userAnswer.equals(correctAnswers[i])) {
+                System.out.println(StaticVariables.CORRECT_RESULT);
+            } else {
+                System.out.println("'" + userAnswer + "'"
+                        + " is wrong answer ;(. Correct answer was '"
+                        + correctAnswers[i]
+                        + "'.\nLet's try again, " + userName + "!");
+                hasWrongAnswer = true;
+
+                break;
+            }
+        }
+        if (!hasWrongAnswer) {
+            System.out.println("Congratulations, " + userName + "!");
+        }
+    }
 
     static int inputChoiceNumber() {
         int number;
@@ -16,7 +38,7 @@ public class Engine {
         return number;
     }
 
-    public static String getUserStringAnswer(String message) {
+    public static String getUserStringInput(String message) {
         String userAnswer;
         do {
             System.out.println(message);

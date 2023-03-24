@@ -3,12 +3,12 @@ package hexlet.code;
 import static hexlet.code.Engine.getScan;
 
 public class Cli {
-    public static void greetUser() {
+    public static String greetUserAndGetName() {
         System.out.println("Welcome to the Brain Games!");
         String userName;
         userName = getUserName("May I have your name?");
         System.out.println("Hello, " + userName + "!");
-        App.setUserName(userName);
+        return userName;
     }
 
     public static String getUserName(String message) {

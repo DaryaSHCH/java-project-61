@@ -3,8 +3,9 @@ package hexlet.code.games;
 import hexlet.code.Engine;
 import hexlet.code.StaticVariables;
 
-public final class ArithmeticProgression extends Game {
-
+public final class ArithmeticProgression {
+    static String[] PROGRESSIONS = new String[StaticVariables.TRIES];
+    static String[] CORRECT_ANSWERS_FOR_PROGRESSION = new String[StaticVariables.TRIES];
     private static final int INTERVAL_FIRST_PROGRESSION = 2;
     private static final int INTERVAL_SECOND_PROGRESSION = 3;
     private static final int INTERVAL_THIRD_PROGRESSION = 5;
@@ -16,40 +17,32 @@ public final class ArithmeticProgression extends Game {
     };
     private static final int PROGRESSION_LENGTH = 10;
 
-    public ArithmeticProgression(String userName) {
-        super(userName);
+    public static void startProgression() {
+        String mainQuestion = "What number is missing in the progression?";
+
+        for (int i = 0; i < StaticVariables.TRIES; i++) {
+            int intervalIndex = Engine.getRandomNumber(0, INTERVALS.length - 1);
+            int startValue = Engine.getRandomNumber(
+                    StaticVariables.MIN_VALUE_FOR_RANDOM,
+                    StaticVariables.MAX_VALUE_FOR_RANDOM_TO_HUNDRED);
+            int[] fullProgression = getIntegerFullProgression(intervalIndex,startValue);
+            int indexMissingElement = Engine.getRandomNumber(0, fullProgression.length - 1);
+            CORRECT_ANSWERS_FOR_PROGRESSION[i] = String.valueOf(fullProgression[indexMissingElement]);
+            PROGRESSIONS[i] = getProgressionWithEmptyIndex(fullProgression, indexMissingElement);
+        }
+        Engine.startGame(mainQuestion, PROGRESSIONS, CORRECT_ANSWERS_FOR_PROGRESSION);
+
+
     }
-
-    @Override
-    protected String getStartMessage() {
-        return "What number is missing in the progression?";
-    }
-
-    @Override
-    protected GameTryResult processUserTry() {
-        int intervalIndex = Engine.getRandomNumber(0, INTERVALS.length - 1);
-        int interval = INTERVALS[intervalIndex];
-        int startValue = Engine.getRandomNumber(
-                StaticVariables.MIN_VALUE_FOR_RANDOM,
-                StaticVariables.MAX_VALUE_FOR_RANDOM_TO_HUNDRED);
-
+    private static int[] getIntegerFullProgression(int intervalIdx, int startValue) {
+        int interval = INTERVALS[intervalIdx];
         int[] sequence = new int[PROGRESSION_LENGTH];
         sequence[0] = startValue;
 
         for (int i = 1; i < sequence.length; i++) {
             sequence[i] = sequence[i - 1] + interval;
         }
-
-        int hiddenElementIndex = Engine.getRandomNumber(0, sequence.length - 1);
-        String sequenceWithHiddenValue = getProgressionWithEmptyIndex(sequence, hiddenElementIndex);
-
-        String correctAnswer = String.valueOf(sequence[hiddenElementIndex]);
-        String userAnswer = Engine.getUserStringAnswer(StaticVariables.QUESTION + sequenceWithHiddenValue);
-
-        return new GameTryResult(
-                correctAnswer,
-                userAnswer
-        );
+        return sequence;
     }
 
     public static String getProgressionWithEmptyIndex(int[] progression, int indexMissingElement) {
