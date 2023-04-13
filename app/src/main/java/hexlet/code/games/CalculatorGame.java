@@ -1,42 +1,32 @@
 package hexlet.code.games;
 
 import hexlet.code.Engine;
-import hexlet.code.StaticVariables;
+import hexlet.code.Utils;
 
 public final class CalculatorGame {
+    private static final String MAIN_CALC_QUESTION = "What is the result of the expression?";
     private static final String[] OPERATORS = {"+", "-", "*"};
-    private static final String[] MATH_EXPRESSIONS = new String[StaticVariables.TRIES];
-    private static final String[] CORRECT_ANSWER_FOR_CALC = new String[StaticVariables.TRIES];
+    private static final int MIN_VALUE_FOR_RANDOM = 1;
+    private static final int MAX_VALUE_FOR_RANDOM_TO_TEN = 10;
+
+    private static final int QUESTION_AND_ANSWER_LENGTH = 2;
 
     public static void startCalc() {
-        String mainQuestion = "What is the result of the expression?";
-        int[] firstOperands = generateRoundsOperand();
-        int[] secondOperands = generateRoundsOperand();
-        fillQuestionsAndAnswers(firstOperands, secondOperands);
-        Engine.startGame(mainQuestion, MATH_EXPRESSIONS, CORRECT_ANSWER_FOR_CALC);
+        Engine.startGame(MAIN_CALC_QUESTION, generateAndGetQuestionsAndAnswers());
     }
 
-    private static int[] generateRoundsOperand() {
-        int[] operands = new int[StaticVariables.TRIES];
-        for (int i = 0; i < operands.length; i++) {
-            int randomNumber = Engine.getRandomNumber(
-                    StaticVariables.MIN_VALUE_FOR_RANDOM,
-                    StaticVariables.MAX_VALUE_FOR_RANDOM_TO_TEN);
-            operands[i] = randomNumber;
-        }
-        return operands;
-    }
+    public static String[][] generateAndGetQuestionsAndAnswers() {
+        String[][] questionAndAnswer = new String[Engine.TRIES][QUESTION_AND_ANSWER_LENGTH];
 
-    public static void fillQuestionsAndAnswers(int[] firstOperands, int[] secondOperands) {
-        for (int i = 0; i < MATH_EXPRESSIONS.length; i++) {
-            int randomIndex = Engine.getRandomNumber(0, OPERATORS.length - 1);
-            String chosenOperator = OPERATORS[randomIndex];
-            MATH_EXPRESSIONS[i] = firstOperands[i] + " " + chosenOperator + " " + secondOperands[i];
-            CORRECT_ANSWER_FOR_CALC[i] = Integer.toString(getCalculatedResult(chosenOperator,
-                    firstOperands[i],
-                    secondOperands[i]));
+        for (int i = 0; i < Engine.TRIES; i++) {
+            int firstOperand = Utils.getRandomNumber(MIN_VALUE_FOR_RANDOM, MAX_VALUE_FOR_RANDOM_TO_TEN);
+            int secondOperand = Utils.getRandomNumber(MIN_VALUE_FOR_RANDOM, MAX_VALUE_FOR_RANDOM_TO_TEN);
+            int sign = Utils.getRandomNumber(0, OPERATORS.length - 1);
 
+            questionAndAnswer[i][0] = getStringMathExpression(firstOperand, sign, secondOperand);
+            questionAndAnswer[i][1] = Integer.toString(getCalculatedResult(OPERATORS[sign], firstOperand, secondOperand));
         }
+        return questionAndAnswer;
     }
     public static int getCalculatedResult(String signMathOperation, int firstOperand, int secondOperand) {
         int calculatedResult;
@@ -57,5 +47,8 @@ public final class CalculatorGame {
                 throw new RuntimeException("Unknown input: " + signMathOperation);
             }
         }
+    }
+    public static String getStringMathExpression(int firstOperand, int sign, int secondOperand) {
+        return Integer.toString(firstOperand) + " " + OPERATORS[sign] + " " + Integer.toString(secondOperand);
     }
 }

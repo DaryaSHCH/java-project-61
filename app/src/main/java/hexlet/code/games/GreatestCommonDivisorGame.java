@@ -1,37 +1,29 @@
 package hexlet.code.games;
 
 import hexlet.code.Engine;
-import hexlet.code.StaticVariables;
+import hexlet.code.Utils;
 
 public final class GreatestCommonDivisorGame {
-    private static final String[] PAIRS_FOR_GCD = new String[StaticVariables.TRIES];
-    private static final String[] CORRECT_ANSWERS_FOR_GCD = new String[StaticVariables.TRIES];
+    private static final String MAIN_GCD_QUESTION = "Find the greatest common divisor of given numbers.";
+    private static final int MIN_VALUE_FOR_RANDOM = 1;
+    private static final int MAX_VALUE_FOR_RANDOM_TO_HUNDRED = 100;
+    private static final int QUESTION_AND_ANSWER_LENGTH = 2;
     public static void startGCD() {
-        String mainQuestion = "Find the greatest common divisor of given numbers.";
-
-        int[] firstNumbers = getRandomNumbers();
-        int[] secondNumbers = getRandomNumbers();
-        fillQuestionsAndAnswers(firstNumbers, secondNumbers);
-        Engine.startGame(mainQuestion, PAIRS_FOR_GCD, CORRECT_ANSWERS_FOR_GCD);
-    }
-    private static int[] getRandomNumbers() {
-        int[] numbers = new int[StaticVariables.TRIES];
-        for (int i = 0; i < numbers.length; i++) {
-            int randomNumber = Engine.getRandomNumber(
-                    StaticVariables.MIN_VALUE_FOR_RANDOM,
-                    StaticVariables.MAX_VALUE_FOR_RANDOM_TO_HUNDRED);
-            numbers[i] = randomNumber;
-        }
-        return numbers;
+        Engine.startGame(MAIN_GCD_QUESTION, generateAndGetQuestionsAndAnswers());
     }
 
-    public static void fillQuestionsAndAnswers(int[] firstNumbers, int[] secondNumbers) {
-        for (int i = 0; i < PAIRS_FOR_GCD.length; i++) {
-            PAIRS_FOR_GCD[i] = firstNumbers[i] + " " + secondNumbers[i];
-            CORRECT_ANSWERS_FOR_GCD[i] = Integer.toString(getGCD(firstNumbers[i],
-                    secondNumbers[i]));
+    public static String[][] generateAndGetQuestionsAndAnswers() {
+        String[][] questionsAndAnswers= new String[Engine.TRIES][QUESTION_AND_ANSWER_LENGTH];
+        for (int i = 0; i < Engine.TRIES; i++) {
+            int firstNumber = Utils.getRandomNumber(MIN_VALUE_FOR_RANDOM, MAX_VALUE_FOR_RANDOM_TO_HUNDRED);
+            int secondNumber = Utils.getRandomNumber(MIN_VALUE_FOR_RANDOM, MAX_VALUE_FOR_RANDOM_TO_HUNDRED);
+            questionsAndAnswers[i][0] = Integer.toString(firstNumber) + " " + Integer.toString(secondNumber);
+            questionsAndAnswers[i][1] = Integer.toString(getGCD(firstNumber, secondNumber));
         }
+        return questionsAndAnswers;
     }
+
+
     public static int getGCD(int firstNumber, int secondNumber) {
         if (firstNumber == 0) {
             return secondNumber;

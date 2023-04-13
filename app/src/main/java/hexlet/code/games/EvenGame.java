@@ -1,44 +1,27 @@
 package hexlet.code.games;
 
 import hexlet.code.Engine;
-import hexlet.code.StaticVariables;
+import hexlet.code.Utils;
 
 public final class EvenGame  {
+    public static final String MAIN_EVEN_QUESTION = "Answer 'yes' if the number is even, otherwise answer 'no'.";
+    private static final int MIN_VALUE_FOR_RANDOM = 1;
+    private static final int MAX_VALUE_FOR_RANDOM_TO_TEN = 10;
+
+    private static final int QUESTION_AND_ANSWER_LENGTH = 2;
     public static void startEvenGame() {
-        String mainQuestion = "Answer 'yes' if the number is even, otherwise answer 'no'.";
-        int[] randNumbersForEven = getQuestions();
-        String[] randomStringNumbersForEven = getStringArrayFromInteger(randNumbersForEven);
-        String[] correctAnswers = getCorrectAnswers(randNumbersForEven);
-        Engine.startGame(mainQuestion, randomStringNumbersForEven, correctAnswers);
+        Engine.startGame(MAIN_EVEN_QUESTION, generateAndGetQuestionsAndAnswers());
     }
-    private static int[] getQuestions() {
-        int[] roundsData = new int[StaticVariables.TRIES];
-        for (int i = 0; i < roundsData.length; i++) {
-            int randomNumberForEven = Engine.getRandomNumber(
-                    StaticVariables.MIN_VALUE_FOR_RANDOM,
-                    StaticVariables.MAX_VALUE_FOR_RANDOM_TO_TEN);
-            roundsData[i] = randomNumberForEven;
-            }
-        return roundsData;
-    }
-    private static String[] getCorrectAnswers(int[] randomNumbersForEven) {
-        String[] correctAnswers  = new String[StaticVariables.TRIES];
-        for (int i = 0; i < correctAnswers.length; i++) {
-            correctAnswers[i] = getCorrectAnswerForEven(randomNumbersForEven[i]);
+    private static String[][] generateAndGetQuestionsAndAnswers() {
+        String[][] questionAndAnswer = new String[Engine.TRIES][QUESTION_AND_ANSWER_LENGTH];
+        for (int i = 0; i < Engine.TRIES; i++) {
+            int number = Utils.getRandomNumber(MIN_VALUE_FOR_RANDOM, MAX_VALUE_FOR_RANDOM_TO_TEN);
+            questionAndAnswer[i][1] = Utils.getCorrectAnswer(isEven(number));
+            questionAndAnswer[i][0] = Integer.toString(number);
         }
-        return correctAnswers;
+        return questionAndAnswer;
     }
 
-    private static String[] getStringArrayFromInteger(int[] numbers) {
-        String[] stringNumbers = new String[numbers.length];
-        for (int i = 0; i < stringNumbers.length; i++) {
-            stringNumbers[i] = Integer.toString(numbers[i]);
-        }
-        return stringNumbers;
-    }
-    private static String getCorrectAnswerForEven(int randomNumberForEven) {
-        return isEven(randomNumberForEven) ? "yes" : "no";
-    }
 
     public static boolean isEven(int randomNumb) {
         return randomNumb % 2 == 0;

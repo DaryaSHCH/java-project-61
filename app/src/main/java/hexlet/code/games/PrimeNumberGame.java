@@ -1,44 +1,26 @@
 package hexlet.code.games;
 
 import hexlet.code.Engine;
-import hexlet.code.StaticVariables;
+import hexlet.code.Utils;
 
 public final class PrimeNumberGame {
+    private static final String MAIN_PRIME_QUESTION = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
+    private static final int MIN_VALUE_FOR_RANDOM = 1;
+    private static final int MAX_VALUE_FOR_RANDOM_TO_HUNDRED = 100;
+    private static final int QUESTION_AND_ANSWER_LENGTH = 2;
     public static void startPrime() {
-        String mainQuestion = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
+        Engine.startGame(MAIN_PRIME_QUESTION, generateAndGetQuestionsAndAnswers());
+    }
+    public static String[][] generateAndGetQuestionsAndAnswers() {
+        String[][] questionsAndAnswers = new String[Engine.TRIES][QUESTION_AND_ANSWER_LENGTH];
+        for (int i = 0; i < Engine.TRIES; i++) {
+            int number = Utils.getRandomNumber(MIN_VALUE_FOR_RANDOM, MAX_VALUE_FOR_RANDOM_TO_HUNDRED);
+            questionsAndAnswers[i][0] = Integer.toString(number);
+            questionsAndAnswers[i][1] = Utils.getCorrectAnswer(isPrime(number));
+        }
+        return questionsAndAnswers;
+    }
 
-        int[] randNumbersForPrime = generateRoundsQuestion();
-        String[] randStrNumbersForPrime = getStringArrayFromInteger(randNumbersForPrime);
-        String[] correctAnswers = generateRoundsCorrectAnswer(randNumbersForPrime);
-        Engine.startGame(mainQuestion, randStrNumbersForPrime, correctAnswers);
-    }
-    private static int[] generateRoundsQuestion() {
-        int[] roundsData = new int[StaticVariables.TRIES];
-        for (int i = 0; i < roundsData.length; i++) {
-            int randomNumberForPrime = Engine.getRandomNumber(
-                    StaticVariables.MIN_VALUE_FOR_RANDOM,
-                    StaticVariables.MAX_VALUE_FOR_RANDOM_TO_HUNDRED);
-            roundsData[i] = randomNumberForPrime;
-        }
-        return roundsData;
-    }
-    private static String[] getStringArrayFromInteger(int[] array) {
-        String[] arrayString = new String[array.length];
-        for (int i = 0; i < arrayString.length; i++) {
-            arrayString[i] = Integer.toString(array[i]);
-        }
-        return arrayString;
-    }
-    private static String[] generateRoundsCorrectAnswer(int[] randomNumbersForEven) {
-        String[] correctAnswers  = new String[StaticVariables.TRIES];
-        for (int i = 0; i < correctAnswers.length; i++) {
-            correctAnswers[i] = getCorrectAnswerForPrime(randomNumbersForEven[i]);
-        }
-        return correctAnswers;
-    }
-    private static String getCorrectAnswerForPrime(int randomNumberForPrime) {
-        return isPrime(randomNumberForPrime) ? "yes" : "no";
-    }
     public static boolean isPrime(int number) {
         int numberForCheck = 1;
         if (number <= numberForCheck) {
