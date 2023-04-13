@@ -23,16 +23,13 @@ public class Engine {
                         + questionsAndAnswers[i][1]
                         + "'.\nLet's try again, " + userName + "!");
                 hasWrongAnswer = true;
-
+                closeSCAN();
                 break;
             }
         }
         if (!hasWrongAnswer) {
             System.out.println("Congratulations, " + userName + "!");
         }
-    }
-    private static void setScan(Scanner scanner) {
-        Engine.scan = scanner;
     }
     static Scanner getScan() {
         return scan;
