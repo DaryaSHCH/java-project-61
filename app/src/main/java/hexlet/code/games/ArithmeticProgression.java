@@ -24,17 +24,19 @@ public final class ArithmeticProgression {
         Engine.startGame(MAIN_PROGRESSION_QUESTION, generateAndGetQuestionsAndAnswers());
     }
 
-    public static String[][] generateAndGetQuestionsAndAnswers(){
+    public static String[][] generateAndGetQuestionsAndAnswers() {
         String[][] questionsAndAnswers = new String[Engine.TRIES][QUESTION_AND_ANSWER_LENGTH];
         for (int i = 0; i < Engine.TRIES; i++) {
             int startValue = Utils.getRandomNumber(MIN_VALUE_FOR_RANDOM, MAX_VALUE_FOR_RANDOM_TO_HUNDRED);
             int intervalBetweenNumbers = Utils.getRandomNumber(0, INTERVALS.length - 1);
             int indexHiddenElement = Utils.getRandomNumber(0, PROGRESSION_LENGTH - 1);
 
-            String[] progression = getFullStringProgression(getFullProgression(startValue, INTERVALS[intervalBetweenNumbers]));
+            String[] progression = getFullStringProgression(getFullProgression
+                    (startValue, INTERVALS[intervalBetweenNumbers]));
             progression[indexHiddenElement] = "..";
             questionsAndAnswers[i][0] = String.join(" ", progression);
-            questionsAndAnswers[i][1] = Integer.toString(startValue + INTERVALS[intervalBetweenNumbers] * indexHiddenElement);
+            questionsAndAnswers[i][1] = Integer.toString(startValue
+                    + INTERVALS[intervalBetweenNumbers] * indexHiddenElement);
         }
         return questionsAndAnswers;
     }

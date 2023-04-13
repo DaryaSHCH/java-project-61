@@ -13,11 +13,11 @@ public final class GreatestCommonDivisorGame {
     }
 
     public static String[][] generateAndGetQuestionsAndAnswers() {
-        String[][] questionsAndAnswers= new String[Engine.TRIES][QUESTION_AND_ANSWER_LENGTH];
+        String[][] questionsAndAnswers = new String[Engine.TRIES][QUESTION_AND_ANSWER_LENGTH];
         for (int i = 0; i < Engine.TRIES; i++) {
             int firstNumber = Utils.getRandomNumber(MIN_VALUE_FOR_RANDOM, MAX_VALUE_FOR_RANDOM_TO_HUNDRED);
             int secondNumber = Utils.getRandomNumber(MIN_VALUE_FOR_RANDOM, MAX_VALUE_FOR_RANDOM_TO_HUNDRED);
-            questionsAndAnswers[i][0] = Integer.toString(firstNumber) + " " + Integer.toString(secondNumber);
+            questionsAndAnswers[i][0] = firstNumber + " " + secondNumber;
             questionsAndAnswers[i][1] = Integer.toString(getGCD(firstNumber, secondNumber));
         }
         return questionsAndAnswers;

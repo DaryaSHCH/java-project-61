@@ -24,7 +24,8 @@ public final class CalculatorGame {
             int sign = Utils.getRandomNumber(0, OPERATORS.length - 1);
 
             questionAndAnswer[i][0] = getStringMathExpression(firstOperand, sign, secondOperand);
-            questionAndAnswer[i][1] = Integer.toString(getCalculatedResult(OPERATORS[sign], firstOperand, secondOperand));
+            questionAndAnswer[i][1] = Integer.toString(getCalculatedResult(OPERATORS[sign],
+                    firstOperand, secondOperand));
         }
         return questionAndAnswer;
     }
