@@ -6,7 +6,6 @@ import hexlet.code.games.CalculatorGame;
 import hexlet.code.games.EvenGame;
 import hexlet.code.games.GreatestCommonDivisorGame;
 import hexlet.code.games.PrimeNumberGame;
-import static hexlet.code.Engine.closeSCAN;
 
 public class App {
     public static final  String USER_CHOICE = """
@@ -28,16 +27,12 @@ public class App {
     static final int USER_CHOICE_FOR_PRIME = 6;
     public static void main(String[] args) {
         System.out.println(USER_CHOICE);
-        int numberUserChoice;
-        do {
-            numberUserChoice = Utils.inputChoiceNumber();
-        } while (numberUserChoice > USER_CHOICE_FOR_PRIME);
-
+        int numberUserChoice = Engine.inputChoiceNumber();
         switch (numberUserChoice) {
             case USER_CHOICE_FOR_GREETING -> {
                 System.out.println("Welcome to the Brain Games!");
                 String userName;
-                userName = Utils.getUserInput("May I have your name?");
+                userName = Engine.getUserName("May I have your name?");
                 System.out.println("Hello, " + userName + "!");
             }
             case USER_CHOICE_FOR_START_EVEN_GAME -> {
@@ -65,6 +60,5 @@ public class App {
             }
             default -> throw new RuntimeException("Unknown input: " + numberUserChoice);
         }
-        closeSCAN();
     }
 }

@@ -31,8 +31,8 @@ public final class ArithmeticProgression {
             int intervalBetweenNumbers = Utils.getRandomNumber(0, INTERVALS.length - 1);
             int indexHiddenElement = Utils.getRandomNumber(0, PROGRESSION_LENGTH - 1);
 
-            String[] progression = getFullStringProgression(getFullProgression(startValue,
-                    INTERVALS[intervalBetweenNumbers]));
+            String[] progression = makeProgression(startValue,
+                    INTERVALS[intervalBetweenNumbers]);
             progression[indexHiddenElement] = "..";
             questionsAndAnswers[i][0] = String.join(" ", progression);
             questionsAndAnswers[i][1] = Integer.toString(startValue
@@ -40,21 +40,13 @@ public final class ArithmeticProgression {
         }
         return questionsAndAnswers;
     }
+    private static String[] makeProgression(int firstElement, int interval) {
+        String[] progression = new String[ArithmeticProgression.PROGRESSION_LENGTH];
 
-    private static int[] getFullProgression(int startValue, int intervalIdx) {
-        int[] sequence = new int[PROGRESSION_LENGTH];
-        sequence[0] = startValue;
+        for (int i = 0; i < ArithmeticProgression.PROGRESSION_LENGTH; i += 1) {
+            progression[i] = Integer.toString(firstElement + i * interval);
+        }
 
-        for (int i = 1; i < sequence.length; i++) {
-            sequence[i] = sequence[i - 1] + intervalIdx;
-        }
-        return sequence;
-    }
-    private static String[] getFullStringProgression(int[] progression) {
-        String[] sequence = new String[PROGRESSION_LENGTH];
-        for (int i = 0; i < sequence.length; i++) {
-            sequence[i] = String.valueOf(progression[i]);
-        }
-        return sequence;
+        return progression;
     }
 }

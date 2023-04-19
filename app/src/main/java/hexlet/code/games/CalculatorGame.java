@@ -23,7 +23,8 @@ public final class CalculatorGame {
             int secondOperand = Utils.getRandomNumber(MIN_VALUE_FOR_RANDOM, MAX_VALUE_FOR_RANDOM_TO_TEN);
             int sign = Utils.getRandomNumber(0, OPERATORS.length - 1);
 
-            questionAndAnswer[i][0] = getStringMathExpression(firstOperand, sign, secondOperand);
+            questionAndAnswer[i][0] = Integer.toString(firstOperand) + " "
+                    + OPERATORS[sign] + " " + Integer.toString(secondOperand);;
             questionAndAnswer[i][1] = Integer.toString(getCalculatedResult(OPERATORS[sign],
                     firstOperand, secondOperand));
         }
@@ -48,8 +49,5 @@ public final class CalculatorGame {
                 throw new RuntimeException("Unknown input: " + signMathOperation);
             }
         }
-    }
-    public static String getStringMathExpression(int firstOperand, int sign, int secondOperand) {
-        return Integer.toString(firstOperand) + " " + OPERATORS[sign] + " " + Integer.toString(secondOperand);
     }
 }

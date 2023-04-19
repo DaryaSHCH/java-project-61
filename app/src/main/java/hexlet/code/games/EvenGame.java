@@ -16,7 +16,7 @@ public final class EvenGame  {
         String[][] questionAndAnswer = new String[Engine.TRIES][QUESTION_AND_ANSWER_LENGTH];
         for (int i = 0; i < Engine.TRIES; i++) {
             int number = Utils.getRandomNumber(MIN_VALUE_FOR_RANDOM, MAX_VALUE_FOR_RANDOM_TO_TEN);
-            questionAndAnswer[i][1] = Utils.getCorrectAnswer(isEven(number));
+            questionAndAnswer[i][1] = Engine.getCorrectAnswer(isEven(number));
             questionAndAnswer[i][0] = Integer.toString(number);
         }
         return questionAndAnswer;
