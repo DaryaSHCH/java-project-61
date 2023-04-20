@@ -30,9 +30,9 @@ public class App {
         int numberUserChoice = Engine.inputChoiceNumber();
         switch (numberUserChoice) {
             case USER_CHOICE_FOR_GREETING -> {
-                System.out.println("Welcome to the Brain Games!");
-                String userName;
-                userName = Engine.getUserName("May I have your name?");
+                System.out.println("Your choice: " + USER_CHOICE_FOR_GREETING
+                        + "\nWelcome to the Brain Games!");
+                String userName = Engine.getUserStringInput("May I have your name?");
                 System.out.println("Hello, " + userName + "!");
             }
             case USER_CHOICE_FOR_START_EVEN_GAME -> {
