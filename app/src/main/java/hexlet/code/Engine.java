@@ -7,12 +7,14 @@ public class Engine {
     public static void startGame(String mainGameQuestion, String[][] questionsAndAnswers) {
         Scanner scan = new Scanner(System.in);
         System.out.println("Welcome to the Brain Games!");
-        String userName;
-        userName = getUserStringInput("May I have your name?");
+        System.out.println("May I have your name?");
+        String userName = scan.next();
         System.out.println("Hello, " + userName + "!");
         System.out.println(mainGameQuestion);
         for (int i = 0; i < TRIES; i++) {
-            String userAnswer = getUserStringInput("Question: " + questionsAndAnswers[i][0] + "\nYour answer: ");
+            System.out.println("Question: " + questionsAndAnswers[i][0]);
+            System.out.print("Your answer: ");
+            String userAnswer = scan.next();
             if (userAnswer.equals(questionsAndAnswers[i][1])) {
                 System.out.println("Correct!");
             } else {
@@ -26,30 +28,5 @@ public class Engine {
         }
         scan.close();
         System.out.println("Congratulations, " + userName + "!");
-    }
-    static int inputChoiceNumber() {
-        @SuppressWarnings("opened Scanner")
-        Scanner scan = new Scanner(System.in);
-        int number;
-        while (!scan.hasNextInt()) {
-            var line = scan.nextLine();
-            System.out.println(App.USER_CHOICE);
-        }
-        number = scan.nextInt();
-        return number;
-    }
-
-    public static String getUserStringInput(String message) {
-        @SuppressWarnings("opened Scanner")
-        Scanner scan = new Scanner(System.in);
-        String userAnswer;
-        do {
-            System.out.println(message);
-            userAnswer = scan.nextLine();
-        } while (userAnswer.trim().equals(""));
-        return userAnswer;
-    }
-    public static String getCorrectAnswer(boolean result) {
-        return result ? "yes" : "no";
     }
 }

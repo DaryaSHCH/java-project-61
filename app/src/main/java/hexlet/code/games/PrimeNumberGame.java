@@ -16,7 +16,7 @@ public final class PrimeNumberGame {
         for (int i = 0; i < Engine.TRIES; i++) {
             int number = Utils.getRandomNumber(MIN_VALUE_FOR_RANDOM, MAX_VALUE_FOR_RANDOM_TO_HUNDRED);
             questionsAndAnswers[i][0] = Integer.toString(number);
-            questionsAndAnswers[i][1] = Engine.getCorrectAnswer(isPrime(number));
+            questionsAndAnswers[i][1] = getCorrectAnswer(isPrime(number));
         }
         return questionsAndAnswers;
     }
@@ -32,5 +32,8 @@ public final class PrimeNumberGame {
             }
         }
         return true;
+    }
+    public static String getCorrectAnswer(boolean result) {
+        return result ? "yes" : "no";
     }
 }

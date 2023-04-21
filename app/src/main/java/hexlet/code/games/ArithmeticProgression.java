@@ -33,10 +33,9 @@ public final class ArithmeticProgression {
 
             String[] progression = makeProgression(startValue,
                     INTERVALS[intervalBetweenNumbers]);
+            questionsAndAnswers[i][1] = progression[indexHiddenElement];
             progression[indexHiddenElement] = "..";
             questionsAndAnswers[i][0] = String.join(" ", progression);
-            questionsAndAnswers[i][1] = Integer.toString(startValue
-                    + INTERVALS[intervalBetweenNumbers] * indexHiddenElement);
         }
         return questionsAndAnswers;
     }
